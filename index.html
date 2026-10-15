@@ -6,9 +6,9 @@
 <meta name="description" content="Ejada Financial Services: the engine room of the Kingdom's banking spine. Interactive prototype by Sector Marketing.">
 <meta property="og:title" content="Ejada Financial Services">
 <meta property="og:description" content="Transforming financial institutions into resilient, intelligent, growth-ready enterprises.">
-<meta property="og:image" content="img/hero-poster.jpg?v=5">
+<meta property="og:image" content="img/hero-poster.jpg?v=6">
 <meta name="theme-color" content="#050B2D">
-<link rel="icon" href="img/ejada-logo-navy.png?v=5">
+<link rel="icon" href="img/ejada-logo-navy.png?v=6">
 <style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
 <title>Ejada Financial Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@ html.light .nav { background: var(--navsolid); -webkit-backdrop-filter: blur(14p
 html.light .hero-media::after { background: linear-gradient(90deg, rgba(245,243,240,.97) 0%, rgba(245,243,240,.86) 32%, rgba(245,243,240,.18) 62%, rgba(245,243,240,0) 100%), linear-gradient(0deg, #F5F3F0 0%, rgba(245,243,240,0) 40%); }
 html.light .case-media::after { background: linear-gradient(90deg, rgba(245,243,240,0) 60%, #F5F3F0 100%), linear-gradient(0deg, rgba(5,11,45,.5), rgba(5,11,45,0) 40%); }
 html.light .case-copy > p { color: var(--mute); }
-html.light :is(.logo img, footer img, .drawer-bar img) { content: url("img/ejada-logo-navy.png?v=5"); }
+html.light :is(.logo img, footer img, .drawer-bar img) { content: url("img/ejada-logo-navy.png?v=6"); }
 html.light .foot-big { opacity: .06; }
 html.light .cursor { mix-blend-mode: normal; }
 html.light .dots button { background: rgba(0, 16, 129, 0.22); }
@@ -262,6 +262,39 @@ main > section { padding-inline: var(--gutter); }
 .sol span { font-size: .86rem; color: rgba(245,243,240,.85); }
 .sheet-actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .sheet-actions .btn { padding: 12px 16px; font-size: .7rem; }
+
+
+/* ---------- case builder visual ---------- */
+.case-viz { position: relative; padding: 4px 8px 0; background: radial-gradient(ellipse 60% 55% at 50% 48%, rgba(0,158,224,.16), transparent 70%); border-bottom: 1px solid var(--line); }
+.case-viz svg { width: 100%; height: auto; display: block; overflow: visible; }
+.cv-ring { fill: none; stroke: rgba(245,243,240,.13); stroke-dasharray: 2 6; transform-origin: 260px 170px; animation: cvspin 70s linear infinite; }
+.cv-ring.r1 { animation-duration: 95s; animation-direction: reverse; }
+.cv-ring.r2 { stroke: rgba(245,243,240,.08); }
+@keyframes cvspin { to { transform: rotate(360deg); } }
+.cv-int { fill: none; stroke: #1FED93; stroke-width: 2.2; stroke-linecap: round; opacity: .35; transform-origin: 260px 170px; transform: rotate(-90deg); transition: stroke-dashoffset 1.4s cubic-bezier(.6,0,.2,1), opacity .6s, stroke-width .6s; }
+.case-viz.done .cv-int { opacity: 1; stroke-width: 3; filter: drop-shadow(0 0 6px rgba(31,237,147,.9)); }
+.arm { transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .5s; }
+.arm .link { stroke: rgba(0,158,224,.55); stroke-width: 1.1; transition: stroke-dashoffset .8s ease .1s; }
+.arm .flow { stroke-width: 1.6; stroke-dasharray: 2 12; opacity: .85; animation: cvflow 1.1s linear infinite; }
+@keyframes cvflow { to { stroke-dashoffset: -28; } }
+.nd { transition: transform .65s cubic-bezier(.34,1.56,.64,1); }
+.nd text { font: 500 10px "JetBrains Mono", monospace; fill: #F5F3F0; letter-spacing: .03em; }
+.cv-glow { transform-origin: 260px 170px; animation: cvbreathe 3.2s ease-in-out infinite; }
+@keyframes cvbreathe { 50% { transform: scale(1.12); opacity: .7; } }
+.case-viz.done .cv-glow { animation: cvpulse 1.4s ease-out 2, cvbreathe 3.2s ease-in-out 2.8s infinite; }
+@keyframes cvpulse { 0% { transform: scale(1); } 40% { transform: scale(1.9); opacity: .9; } 100% { transform: scale(1); } }
+.cv-eyebrow { font: 500 7.5px "JetBrains Mono", monospace; letter-spacing: .16em; fill: #1FED93; }
+.cv-title { font: 800 12.5px "Big Shoulders Display", "Arial Narrow", sans-serif; letter-spacing: .02em; fill: #F5F3F0; text-transform: uppercase; }
+.cv-check { font: 700 13px var(--body); fill: #1FED93; }
+.spark { animation: cvspark 1.3s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes cvspark { from { transform: translate(0,0); opacity: 1; } to { transform: translate(var(--dx), var(--dy)); opacity: 0; } }
+.viz-foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 2px 14px 12px; font: 500 .62rem var(--mono); letter-spacing: .12em; color: var(--mute); }
+.viz-foot b { color: #1FED93; font-weight: 500; }
+.viz-foot .pips { display: flex; gap: 5px; }
+.viz-foot .pips i { width: 18px; height: 4px; border-radius: 4px; background: rgba(245,243,240,.15); transition: background .4s; }
+.viz-foot .pips i.on { background: #1FED93; }
+.fly { position: fixed; z-index: 70; pointer-events: none; padding: 8px 14px; border-radius: 999px; background: #1FED93; color: #050B2D; font: 600 .82rem var(--body); white-space: nowrap; box-shadow: 0 10px 30px rgba(31,237,147,.35); }
+@media (prefers-reduced-motion: reduce) { .arm, .nd, .cv-int, .arm .link { transition: none; } }
 
 /* ---------- 6 pinned case ---------- */
 .case-pin { position: relative; height: 100svh; padding: 0 !important; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -481,7 +514,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 <div class="progress" id="progress" aria-hidden="true"></div>
 <header class="top" id="topbar">
   <div class="nav">
-    <a class="logo" href="#top" aria-label="Ejada home"><img src="img/ejada-logo-white.png?v=5" alt="Ejada"></a>
+    <a class="logo" href="#top" aria-label="Ejada home"><img src="img/ejada-logo-white.png?v=6" alt="Ejada"></a>
     <nav class="menu" id="menu" aria-label="Main">
       <button type="button" id="sectorsBtn" aria-expanded="false" aria-controls="mega">Sectors ▾</button>
       <button type="button" data-open="erp">Capabilities</button>
@@ -509,7 +542,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
         <a class="mega-item" href="#top"><b>Telecom &amp; Media</b><span>Operators, networks, content.</span></a>
       </div>
       <div class="mega-side">
-        <img src="img/kafd-dusk.jpg?v=5" alt="">
+        <img src="img/kafd-dusk.jpg?v=6" alt="">
         <div><div class="eyebrow" style="color:var(--cream)">All sectors</div><p>Ten sectors. One accountable programme. Partner-track leadership in each.</p></div>
         <a class="link" style="color:var(--mint)" href="#top">All sectors →</a>
       </div>
@@ -522,7 +555,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
   <!-- 1 Hero -->
   <section class="hero" id="top" data-scene data-label="Financial Services">
     <div class="hero-media" id="heroMedia">
-      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg?v=5" src="img/hero.mp4?v=5"></video>
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg?v=6" src="img/hero.mp4?v=6"></video>
     </div>
     <div class="hero-in" id="heroIn">
       <div>
@@ -550,7 +583,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 2 Vision 2030 context: pinned zoom -->
   <section class="zoom" id="context" data-scene data-label="Vision 2030 context">
-    <div class="zoom-img" id="zoomImg"><img src="img/heritage.jpg?v=5" alt="Riyadh old and new: Masmak-style heritage architecture in front of the Kingdom Centre skyline"></div>
+    <div class="zoom-img" id="zoomImg"><img src="img/heritage.jpg?v=6" alt="Riyadh old and new: Masmak-style heritage architecture in front of the Kingdom Centre skyline"></div>
     <div class="zoom-head">
       <div class="eyebrow">Vision 2030 context</div>
       <h2 id="zoomTitle">Modernizing the Kingdom's banking spine.</h2>
@@ -571,10 +604,10 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
           <p class="body-copy">Pick the one you lead. It becomes the starting point of your case below.</p>
           <div class="count"><span id="railNum">01 / 04</span><i id="railBar"></i></div>
         </div>
-        <article class="seg-card"><img src="img/seg-retail.jpg?v=5" alt=""><span class="big">01</span><span class="eyebrow">Sub-segment</span><h3>Retail Banking</h3><p>Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.</p><button class="pick" type="button" data-pickseg="retail" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-corporate.jpg?v=5" alt=""><span class="big">02</span><span class="eyebrow">Sub-segment</span><h3>Corporate Banking</h3><p>Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.</p><button class="pick" type="button" data-pickseg="corp" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-treasury.jpg?v=5" alt=""><span class="big">03</span><span class="eyebrow">Sub-segment</span><h3>Treasury &amp; Capital Markets</h3><p>Core treasury platforms, capital-markets connectivity, and liquidity management.</p><button class="pick" type="button" data-pickseg="treasury" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-risk.jpg?v=5" alt=""><span class="big">04</span><span class="eyebrow">Sub-segment</span><h3>Compliance &amp; Risk</h3><p>SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.</p><button class="pick" type="button" data-pickseg="risk" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-retail.jpg?v=6" alt=""><span class="big">01</span><span class="eyebrow">Sub-segment</span><h3>Retail Banking</h3><p>Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.</p><button class="pick" type="button" data-pickseg="retail" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-corporate.jpg?v=6" alt=""><span class="big">02</span><span class="eyebrow">Sub-segment</span><h3>Corporate Banking</h3><p>Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.</p><button class="pick" type="button" data-pickseg="corp" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-treasury.jpg?v=6" alt=""><span class="big">03</span><span class="eyebrow">Sub-segment</span><h3>Treasury &amp; Capital Markets</h3><p>Core treasury platforms, capital-markets connectivity, and liquidity management.</p><button class="pick" type="button" data-pickseg="treasury" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-risk.jpg?v=6" alt=""><span class="big">04</span><span class="eyebrow">Sub-segment</span><h3>Compliance &amp; Risk</h3><p>SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.</p><button class="pick" type="button" data-pickseg="risk" data-cursor="ADD">Make this my focus +</button></article>
       </div>
     </div>
   </section>
@@ -592,12 +625,12 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
     <div class="eyebrow" data-reveal>Capabilities applied</div>
     <h2 class="h-display" data-reveal>The capabilities behind the sector.</h2>
     <ul class="cap-list" id="capList">
-      <li class="cap-row" tabindex="0" role="button" data-img="0" data-open="erp" data-cursor="OPEN"><img class="thumb" src="img/cap-erp.jpg?v=5" alt=""><span class="n">01</span><h3>Enterprise Apps &amp; ERP</h3><p>SAP, Oracle, core banking platforms.</p><span class="act">EXPLORE →</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="1" data-addcap="staff" data-cursor="ADD"><img class="thumb" src="img/cap-staff.jpg?v=5" alt=""><span class="n">02</span><h3>Staffing Solutions</h3><p>Sector-fluent banking specialists on demand.</p><span class="act">ADD TO CASE +</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="2" data-addcap="data" data-cursor="ADD"><img class="thumb" src="img/cap-data.jpg?v=5" alt=""><span class="n">03</span><h3>Data &amp; AI</h3><p>Risk analytics, fraud detection, customer intelligence.</p><span class="act">ADD TO CASE +</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="3" data-addcap="cloud" data-cursor="ADD"><img class="thumb" src="img/cap-cloud.jpg?v=5" alt=""><span class="n">04</span><h3>Cloud &amp; Infra</h3><p>Sovereign cloud, hybrid models, disaster recovery.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="0" data-open="erp" data-cursor="OPEN"><img class="thumb" src="img/cap-erp.jpg?v=6" alt=""><span class="n">01</span><h3>Enterprise Apps &amp; ERP</h3><p>SAP, Oracle, core banking platforms.</p><span class="act">EXPLORE →</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="1" data-addcap="staff" data-cursor="ADD"><img class="thumb" src="img/cap-staff.jpg?v=6" alt=""><span class="n">02</span><h3>Staffing Solutions</h3><p>Sector-fluent banking specialists on demand.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="2" data-addcap="data" data-cursor="ADD"><img class="thumb" src="img/cap-data.jpg?v=6" alt=""><span class="n">03</span><h3>Data &amp; AI</h3><p>Risk analytics, fraud detection, customer intelligence.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="3" data-addcap="cloud" data-cursor="ADD"><img class="thumb" src="img/cap-cloud.jpg?v=6" alt=""><span class="n">04</span><h3>Cloud &amp; Infra</h3><p>Sovereign cloud, hybrid models, disaster recovery.</p><span class="act">ADD TO CASE +</span></li>
     </ul>
-    <div class="hover-img" id="hoverImg" aria-hidden="true"><img src="img/cap-erp.jpg?v=5" alt=""><img src="img/cap-staff.jpg?v=5" alt=""><img src="img/cap-data.jpg?v=5" alt=""><img src="img/cap-cloud.jpg?v=5" alt=""></div>
+    <div class="hover-img" id="hoverImg" aria-hidden="true"><img src="img/cap-erp.jpg?v=6" alt=""><img src="img/cap-staff.jpg?v=6" alt=""><img src="img/cap-data.jpg?v=6" alt=""><img src="img/cap-cloud.jpg?v=6" alt=""></div>
   </section>
 
   <!-- 5 Builder -->
@@ -613,9 +646,10 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
       <div id="bsteps"></div>
       <aside class="sheet" aria-live="polite">
         <div class="sheet-top">
-          <img src="img/builder.jpg?v=5" alt="">
+          <img src="img/builder.jpg?v=6" alt="">
           <div class="t"><span class="eyebrow" id="sheetFor">Your transformation case</span><h3 id="sheetTitle">Financial services transformation</h3></div>
         </div>
+        <div class="case-viz" id="caseViz"></div>
         <div class="sheet-body" id="sheet"></div>
       </aside>
     </div>
@@ -623,7 +657,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 6 Case study, pinned -->
   <section class="case-pin" id="cases" data-scene data-label="Sector case studies">
-    <div class="case-media"><img id="caseImg" src="img/metro.jpg?v=5" alt="Riyadh Metro train arriving at the KAFD station at dusk"><span class="tag tag-float">Banking</span></div>
+    <div class="case-media"><img id="caseImg" src="img/metro.jpg?v=6" alt="Riyadh Metro train arriving at the KAFD station at dusk"><span class="tag tag-float">Banking</span></div>
     <div class="case-copy">
       <div class="eyebrow">Sector case studies · Proof, at national scale.</div>
       <h2>Core modernization without downtime</h2>
@@ -663,13 +697,13 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
     <div class="eyebrow" data-reveal>Sector insights</div>
     <h2 class="h-display" data-reveal>Themes shaping Saudi banking.</h2>
     <div class="ins-grid">
-      <article class="ins" data-tilt data-cursor="READ" data-open="playbook" tabindex="0" role="button"><img src="img/ins-sama.jpg?v=5" alt=""><span class="tags">Banking · Regulation</span><h3>SAMA modernization mandate</h3><p>The regulatory roadmap driving simultaneous transformation across all major Saudi banks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
-      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-regtech.jpg?v=5" alt=""><span class="tags">RegTech · Compliance</span><h3>Scaling regulatory technology</h3><p>How Saudi banking platforms are keeping pace with expanding regulatory reporting.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
-      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-mobile.jpg?v=5" alt=""><span class="tags">Digital · Customer Experience</span><h3>The mobile-first banking shift</h3><p>Why digital banking adoption rates in the Kingdom are outpacing global benchmarks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-open="playbook" tabindex="0" role="button"><img src="img/ins-sama.jpg?v=6" alt=""><span class="tags">Banking · Regulation</span><h3>SAMA modernization mandate</h3><p>The regulatory roadmap driving simultaneous transformation across all major Saudi banks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-regtech.jpg?v=6" alt=""><span class="tags">RegTech · Compliance</span><h3>Scaling regulatory technology</h3><p>How Saudi banking platforms are keeping pace with expanding regulatory reporting.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-mobile.jpg?v=6" alt=""><span class="tags">Digital · Customer Experience</span><h3>The mobile-first banking shift</h3><p>Why digital banking adoption rates in the Kingdom are outpacing global benchmarks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
     </div>
     <div class="reads">
-      <button type="button" class="panel read" data-open="playbook" data-cursor="READ"><img src="img/kafd-dusk.jpg?v=5" alt=""><span><span class="eyebrow">Market insights · Banking · 8 min read</span><h4>Orchestrating Saudi Banking Modernization: A reference playbook.</h4><p>The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels.</p></span></button>
-      <button type="button" class="panel read" data-open="orchestrator" data-cursor="READ"><img src="img/network.jpg?v=5" alt=""><span><span class="eyebrow">Executive commentary · 6 min read</span><h4>From integrator to strategic partner: why the model has to change.</h4><p>The post-integration economy is here.</p></span></button>
+      <button type="button" class="panel read" data-open="playbook" data-cursor="READ"><img src="img/kafd-dusk.jpg?v=6" alt=""><span><span class="eyebrow">Market insights · Banking · 8 min read</span><h4>Orchestrating Saudi Banking Modernization: A reference playbook.</h4><p>The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels.</p></span></button>
+      <button type="button" class="panel read" data-open="orchestrator" data-cursor="READ"><img src="img/network.jpg?v=6" alt=""><span><span class="eyebrow">Executive commentary · 6 min read</span><h4>From integrator to strategic partner: why the model has to change.</h4><p>The post-integration economy is here.</p></span></button>
     </div>
   </section>
 
@@ -704,7 +738,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 9 CTA -->
   <section class="cta" id="next" data-scene data-label="Next step">
-    <div class="cta-bg" id="ctaBg"><img src="img/cta.jpg?v=5" alt="Riyadh skyline at night with the Kingdom Centre and Al Faisaliah towers"></div>
+    <div class="cta-bg" id="ctaBg"><img src="img/cta.jpg?v=6" alt="Riyadh skyline at night with the Kingdom Centre and Al Faisaliah towers"></div>
     <div class="cta-in">
       <div class="eyebrow">Next step</div>
       <h2><span>Ready to</span><span>modernize?</span></h2>
@@ -773,7 +807,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
         </div>
       </form>
       <aside class="panel ws-aside">
-        <img src="img/workshop.jpg?v=5" alt="">
+        <img src="img/workshop.jpg?v=6" alt="">
         <div class="in">
           <div class="eyebrow">What happens next</div>
           <h3 class="h-display" style="font-size:2.2rem;margin:.25em 0 .6em">Three simple steps.</h3>
@@ -795,13 +829,13 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
 <footer id="foot">
   <div class="foot-grid">
-    <div><img src="img/ejada-logo-white.png?v=5" alt="Ejada" style="height:40px;width:auto"><p class="tagline">The Kingdom's Strategic Partner for Digital Transformation.</p></div>
+    <div><img src="img/ejada-logo-white.png?v=6" alt="Ejada" style="height:40px;width:auto"><p class="tagline">The Kingdom's Strategic Partner for Digital Transformation.</p></div>
     <div><h5>CAPABILITIES</h5><ul><li>Enterprise Apps &amp; ERP</li><li>Data &amp; AI</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li><li>Digital Transformation &amp; UX</li><li>Managed Services</li><li>Staffing Solutions</li></ul></div>
     <div><h5>SECTORS</h5><ul><li>Financial Services</li><li>Government</li><li>Healthcare</li><li>Energy &amp; Utilities</li><li>Retail &amp; Consumer</li><li>Real Estate</li><li>Transport &amp; Logistics</li><li>Mega Projects</li></ul></div>
     <div><h5>ABOUT</h5><ul><li>Overview</li><li>Leadership</li><li>Timeline</li><li>Culture</li><li>Careers</li></ul></div>
     <div><h5>ENGAGE</h5><ul><li>Request a Workshop</li><li>Visit HQ</li><li>Partner With Ejada</li><li>Contact</li></ul></div>
   </div>
-  <div class="foot-big" aria-hidden="true"><img src="img/ejada-logo-white.png?v=5" alt=""></div>
+  <div class="foot-big" aria-hidden="true"><img src="img/ejada-logo-white.png?v=6" alt=""></div>
   <div class="foot-base"><span>Interactive prototype · Sector Website Profiles · Sector Marketing</span><span>Pre-launch content · imagery is placeholder · not yet validated</span></div>
 </footer>
 
@@ -809,7 +843,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 <template id="t-corecase">
   <div class="eyebrow">Case study · Financial Services</div>
   <h2>How a leading Saudi bank modernized its core without a minute of downtime.</h2>
-  <img class="hero-img" src="img/metro.jpg?v=5" alt="">
+  <img class="hero-img" src="img/metro.jpg?v=6" alt="">
   <p class="standfirst">A major SAMA-regulated institution modernized its core banking platform while serving 700,000+ daily regulatory requests. Zero unplanned outages. 11 vendors orchestrated across 22 months.</p>
   <ul class="chips"><li>Enterprise Apps &amp; ERP</li><li>Staffing Solutions</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li></ul>
   <div class="dstats"><div><b>700,000+</b><span>DAILY SAMA REQUESTS</span></div><div><b>0</b><span>MINUTES DOWNTIME</span></div><div><b>11</b><span>VENDORS ORCHESTRATED</span></div></div>
@@ -1004,7 +1038,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
       drawer = document.createElement("aside"); drawer.className = "drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("data-lenis-prevent", "");
       document.body.append(scrim, drawer); scrim.addEventListener("click", closeDrawer);
     }
-    drawer.innerHTML = '<div class="drawer-bar"><img src="img/ejada-logo-white.png?v=5" alt="Ejada" style="height:26px;width:auto"><button class="close" type="button" data-close>Close ✕</button></div>';
+    drawer.innerHTML = '<div class="drawer-bar"><img src="img/ejada-logo-white.png?v=6" alt="Ejada" style="height:26px;width:auto"><button class="close" type="button" data-close>Close ✕</button></div>';
     drawer.appendChild(tpl.content.cloneNode(true));
     drawer.setAttribute("aria-label", (drawer.querySelector("h2") || {}).textContent || "Reader");
     scrim.hidden = false; drawer.hidden = false; drawer.scrollTop = 0;
@@ -1178,6 +1212,8 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
       '<div class="srow"><span class="eyebrow">Next step</span><ul><li>90-minute Discover workshop' + (B.time >= 0 ? ' · ' + TIMES[B.time] : '') + '<small>A costed first move within five working days.</small></li></ul></div>' +
       '<div class="sheet-actions"><button class="btn btn-primary" type="button" id="attachBtn"' + (m.goals.length && m.caps.length ? '' : ' disabled') + '>Attach to workshop request →</button><button class="btn btn-ghost" type="button" id="copyBtn">Copy summary</button><button class="btn btn-ghost" type="button" id="resetBtn">Reset</button></div>';
     $$("#papersList li").forEach(function (li) { li.classList.toggle("match", m.papers.indexOf(li.dataset.p) >= 0); });
+    window.__caseModel = { m: m, time: B.time, org: B.org };
+    if (window.__caseViz) window.__caseViz(window.__caseModel);
   }
   function summary() {
     var m = caseModel(), L = [];
@@ -1346,7 +1382,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
   var loader = document.createElement("div");
   loader.setAttribute("aria-hidden", "true");
   loader.style.cssText = "position:fixed;inset:0;z-index:100;background:#050B2D;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px";
-  loader.innerHTML = '<img src="img/ejada-logo-white.png?v=5" alt="" style="height:54px;width:auto">' +
+  loader.innerHTML = '<img src="img/ejada-logo-white.png?v=6" alt="" style="height:54px;width:auto">' +
     '<div style="width:min(260px,60vw);height:2px;background:rgba(245,243,240,.12);overflow:hidden"><i style="display:block;height:100%;width:100%;background:linear-gradient(90deg,#009EE0,#1FED93);transform-origin:0 50%;transform:scaleX(0)"></i></div>' +
     '<span style="font:500 .7rem \'JetBrains Mono\',monospace;letter-spacing:.2em;color:rgba(245,243,240,.6)">000</span>';
   document.body.appendChild(loader);
@@ -1434,5 +1470,148 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 })();
 </script>
 
+<script>
+/* Case builder visual: every choice flies in and orbits the bank; five steps close the ring into one integrated solution */
+(function () {
+  "use strict";
+  var host = document.getElementById("caseViz"); if (!host) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var NS = "http://www.w3.org/2000/svg", CX = 260, CY = 170;
+  var RINGS = [78, 116, 152];
+  var SHORT = {
+    "goals:core": "Core", "goals:sama": "SAMA", "goals:products": "Speed to market", "goals:digital": "Digital", "goals:intel": "Risk & fraud AI",
+    "caps:erp": "ERP", "caps:staff": "Specialists", "caps:data": "Data & AI", "caps:cloud": "Cloud", "caps:cyber": "Cyber", "caps:ux": "Digital UX", "caps:ms": "Managed",
+    "plats:sap": "SAP", "plats:oracle": "Oracle", "plats:dyn": "Dynamics", "plats:temenos": "Temenos", "plats:modern": "Clean core", "plats:ams": "24×7 AMS",
+    "cons:zero": "Zero downtime", "cons:vendors": "Multi-vendor", "cons:deadline": "Deadline",
+    "time:0": "Next 2 weeks", "time:1": "Next month", "time:2": "Next quarter", "time:3": "Timing open"
+  };
+  var COLOR = { goals: "#009EE0", caps: "#1FED93", plats: "#7FD8FF", cons: "#F5F3F0", time: "#F5F3F0" };
+  function el(tag, attrs, parent) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+
+  host.innerHTML = "";
+  var svg = el("svg", { viewBox: "0 0 520 340", role: "img", "aria-label": "Your case, assembled around your bank" }, host);
+  var defs = el("defs", {}, svg);
+  var rg = el("radialGradient", { id: "cvCore", cx: "50%", cy: "40%", r: "60%" }, defs);
+  el("stop", { offset: "0%", "stop-color": "#0070C0" }, rg); el("stop", { offset: "100%", "stop-color": "#000850" }, rg);
+  var gl = el("radialGradient", { id: "cvGlow" }, defs);
+  el("stop", { offset: "0%", "stop-color": "#009EE0", "stop-opacity": ".55" }, gl); el("stop", { offset: "100%", "stop-color": "#009EE0", "stop-opacity": "0" }, gl);
+
+  RINGS.forEach(function (r, i) { el("circle", { cx: CX, cy: CY, r: r, class: "cv-ring r" + i }, svg); });
+  var C = 2 * Math.PI * RINGS[2];
+  var intRing = el("circle", { cx: CX, cy: CY, r: RINGS[2], class: "cv-int", "stroke-dasharray": C, "stroke-dashoffset": C }, svg);
+  var arms = el("g", {}, svg);
+  var core = el("g", { class: "cv-core" }, svg);
+  el("circle", { cx: CX, cy: CY, r: 74, fill: "url(#cvGlow)", class: "cv-glow" }, core);
+  el("circle", { cx: CX, cy: CY, r: 46, fill: "url(#cvCore)", stroke: "#009EE0", "stroke-width": "1.5" }, core);
+  var t0 = el("text", { x: CX, y: CY - 14, "text-anchor": "middle", class: "cv-eyebrow" }, core);
+  var t1 = el("text", { x: CX, y: CY + 3, "text-anchor": "middle", class: "cv-title" }, core);
+  var t2 = el("text", { x: CX, y: CY + 18, "text-anchor": "middle", class: "cv-title" }, core);
+  var check = el("text", { x: CX, y: CY + 36, "text-anchor": "middle", class: "cv-check" }, core);
+  var burst = el("g", {}, svg);
+  var foot = document.createElement("div"); foot.className = "viz-foot"; host.appendChild(foot);
+
+  var live = {}; /* key -> {g, link, flow, nd, lbl, txt} */
+  var wasDone = false;
+
+  function setCore(seg, org, done) {
+    t0.textContent = done ? "INTEGRATED" : (org ? org.toUpperCase().slice(0, 18) : "YOUR BANK");
+    var words = seg.t.replace("&", "+").split(" ");
+    var half = Math.ceil(words.length / 2);
+    t1.textContent = words.slice(0, half).join(" "); t2.textContent = words.slice(half).join(" ");
+    check.textContent = done ? "✓" : "";
+  }
+
+  function render(state) {
+    if (!state) return;
+    var m = state.m, items = [];
+    function push(group, list, ring) { list.forEach(function (x) { items.push({ key: group + ":" + x.k, group: group, ring: ring }); }); }
+    push("goals", m.goals, 0); push("caps", m.caps, 1); push("plats", m.plats, 1); push("cons", m.cons, 2);
+    if (state.time >= 0) items.push({ key: "time:" + state.time, group: "time", ring: 2 });
+    var perRing = [[], [], []]; items.forEach(function (it) { perRing[it.ring].push(it); });
+    var offsets = [-90, -64, -118];
+    perRing.forEach(function (list, r) { list.forEach(function (it, i) { it.angle = offsets[r] + i * (360 / Math.max(list.length, 1)); }); });
+
+    var want = {};
+    items.forEach(function (it) {
+      want[it.key] = true;
+      var R = RINGS[it.ring], nx = CX + R, a = it.angle, rec = live[it.key];
+      if (!rec) {
+        var g = el("g", { class: "arm" }, arms);
+        g.style.transformOrigin = CX + "px " + CY + "px";
+        g.style.transform = "rotate(" + (a - 50) + "deg)";
+        var link = el("line", { x1: CX, y1: CY, x2: nx, y2: CY, class: "link", "stroke-dasharray": R, "stroke-dashoffset": R }, g);
+        var flow = el("line", { x1: CX + 46, y1: CY, x2: nx, y2: CY, class: "flow", stroke: COLOR[it.group] }, g);
+        var nd = el("g", { class: "nd" }, g);
+        nd.style.transformOrigin = nx + "px " + CY + "px"; nd.style.transform = "scale(0)";
+        el("circle", { cx: nx, cy: CY, r: 12, fill: COLOR[it.group], opacity: ".18" }, nd);
+        el("circle", { cx: nx, cy: CY, r: 5.5, fill: COLOR[it.group] }, nd);
+        var lbl = el("g", { class: "lbl" }, nd); lbl.style.transformOrigin = nx + "px " + CY + "px";
+        var txt = el("text", { y: CY + 3.5 }, lbl); txt.textContent = SHORT[it.key] || it.key;
+        rec = live[it.key] = { g: g, link: link, flow: flow, nd: nd, lbl: lbl, txt: txt, nx: nx };
+        void g.getBoundingClientRect();
+      }
+      rec.g.style.transform = "rotate(" + a + "deg)";
+      rec.lbl.style.transform = "rotate(" + (-a) + "deg)";
+      var right = Math.cos(a * Math.PI / 180) >= -0.05;
+      rec.txt.setAttribute("x", right ? rec.nx + 14 : rec.nx - 14);
+      rec.txt.setAttribute("text-anchor", right ? "start" : "end");
+      requestAnimationFrame(function () { rec.nd.style.transform = "scale(1)"; rec.link.setAttribute("stroke-dashoffset", 0); });
+    });
+    Object.keys(live).forEach(function (k) {
+      if (want[k]) return;
+      var rec = live[k]; delete live[k];
+      rec.nd.style.transform = "scale(0)"; rec.link.setAttribute("stroke-dashoffset", rec.link.getAttribute("stroke-dasharray")); rec.g.style.opacity = 0;
+      setTimeout(function () { rec.g.remove(); }, 700);
+    });
+
+    var steps = [true, m.goals.length > 0, m.caps.length + m.plats.length > 0, m.cons.length > 0, state.time >= 0];
+    var n = steps.filter(Boolean).length, done = n === 5;
+    setCore(m.seg, state.org, done);
+    intRing.setAttribute("stroke-dashoffset", done ? 0 : C * (1 - (n - 1) / 4));
+    host.classList.toggle("done", done);
+    foot.innerHTML = done
+      ? '<b>✓ Integrated solution ready</b><span>Intelligent Banking Transformation · pilot-ready in 12 weeks</span>'
+      : '<span>' + n + ' / 5 STEPS</span><span class="pips">' + steps.map(function (s) { return '<i class="' + (s ? "on" : "") + '"></i>'; }).join("") + '</span>';
+    if (done && !wasDone) celebrate();
+    wasDone = done;
+  }
+
+  function celebrate() {
+    if (reduce) return;
+    for (var i = 0; i < 26; i++) {
+      var a = Math.random() * Math.PI * 2, d = 120 + Math.random() * 90;
+      var c = el("circle", { cx: CX, cy: CY, r: 1.5 + Math.random() * 2.5, fill: Math.random() < 0.5 ? "#1FED93" : "#009EE0", class: "spark" }, burst);
+      c.style.setProperty("--dx", (Math.cos(a) * d).toFixed(1) + "px");
+      c.style.setProperty("--dy", (Math.sin(a) * d).toFixed(1) + "px");
+      c.style.animationDelay = (Math.random() * 0.25).toFixed(2) + "s";
+      (function (node) { setTimeout(function () { node.remove(); }, 1600); })(c);
+    }
+  }
+
+  /* a chip flies from the clicked option into the visual */
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("#bsteps .opt"); if (!b || reduce) return;
+    setTimeout(function () {
+      if (b.getAttribute("aria-pressed") !== "true") return;
+      var from = b.getBoundingClientRect(), to = host.getBoundingClientRect();
+      if (to.bottom < 0 || to.top > window.innerHeight) return;
+      var chip = document.createElement("div"); chip.className = "fly";
+      chip.textContent = (b.querySelector("b") || b).textContent;
+      chip.style.left = from.left + "px"; chip.style.top = from.top + "px";
+      document.body.appendChild(chip);
+      var dx = to.left + to.width / 2 - from.left - 40, dy = to.top + to.height * 0.45 - from.top;
+      var anim = chip.animate([
+        { transform: "translate(0,0) scale(1)", opacity: 1 },
+        { transform: "translate(" + dx * 0.55 + "px," + (dy * 0.55 - 60) + "px) scale(.9)", opacity: 1, offset: 0.55 },
+        { transform: "translate(" + dx + "px," + dy + "px) scale(.25)", opacity: 0 }
+      ], { duration: 750, easing: "cubic-bezier(.5,0,.3,1)" });
+      anim.onfinish = function () { chip.remove(); };
+    }, 20);
+  });
+
+  window.__caseViz = render;
+  render(window.__caseModel);
+})();
+</script>
 </body>
 </html>
