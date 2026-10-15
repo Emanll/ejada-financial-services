@@ -6,9 +6,9 @@
 <meta name="description" content="Ejada Financial Services: the engine room of the Kingdom's banking spine. Interactive prototype by Sector Marketing.">
 <meta property="og:title" content="Ejada Financial Services">
 <meta property="og:description" content="Transforming financial institutions into resilient, intelligent, growth-ready enterprises.">
-<meta property="og:image" content="img/hero-poster.jpg">
+<meta property="og:image" content="img/hero-poster.jpg?v=5">
 <meta name="theme-color" content="#050B2D">
-<link rel="icon" href="img/ejada-logo-navy.png">
+<link rel="icon" href="img/ejada-logo-navy.png?v=5">
 <style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
 <title>Ejada Financial Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +59,7 @@ html.light .nav { background: var(--navsolid); -webkit-backdrop-filter: blur(14p
 html.light .hero-media::after { background: linear-gradient(90deg, rgba(245,243,240,.97) 0%, rgba(245,243,240,.86) 32%, rgba(245,243,240,.18) 62%, rgba(245,243,240,0) 100%), linear-gradient(0deg, #F5F3F0 0%, rgba(245,243,240,0) 40%); }
 html.light .case-media::after { background: linear-gradient(90deg, rgba(245,243,240,0) 60%, #F5F3F0 100%), linear-gradient(0deg, rgba(5,11,45,.5), rgba(5,11,45,0) 40%); }
 html.light .case-copy > p { color: var(--mute); }
-html.light :is(.logo img, footer img, .drawer-bar img) { content: url("img/ejada-logo-navy.png"); }
+html.light :is(.logo img, footer img, .drawer-bar img) { content: url("img/ejada-logo-navy.png?v=5"); }
 html.light .foot-big { opacity: .06; }
 html.light .cursor { mix-blend-mode: normal; }
 html.light .dots button { background: rgba(0, 16, 129, 0.22); }
@@ -481,7 +481,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 <div class="progress" id="progress" aria-hidden="true"></div>
 <header class="top" id="topbar">
   <div class="nav">
-    <a class="logo" href="#top" aria-label="Ejada home"><img src="img/ejada-logo-white.png" alt="Ejada"></a>
+    <a class="logo" href="#top" aria-label="Ejada home"><img src="img/ejada-logo-white.png?v=5" alt="Ejada"></a>
     <nav class="menu" id="menu" aria-label="Main">
       <button type="button" id="sectorsBtn" aria-expanded="false" aria-controls="mega">Sectors ▾</button>
       <button type="button" data-open="erp">Capabilities</button>
@@ -509,7 +509,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
         <a class="mega-item" href="#top"><b>Telecom &amp; Media</b><span>Operators, networks, content.</span></a>
       </div>
       <div class="mega-side">
-        <img src="img/kafd-dusk.jpg" alt="">
+        <img src="img/kafd-dusk.jpg?v=5" alt="">
         <div><div class="eyebrow" style="color:var(--cream)">All sectors</div><p>Ten sectors. One accountable programme. Partner-track leadership in each.</p></div>
         <a class="link" style="color:var(--mint)" href="#top">All sectors →</a>
       </div>
@@ -522,7 +522,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
   <!-- 1 Hero -->
   <section class="hero" id="top" data-scene data-label="Financial Services">
     <div class="hero-media" id="heroMedia">
-      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg" src="img/hero.mp4"></video>
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg?v=5" src="img/hero.mp4?v=5"></video>
     </div>
     <div class="hero-in" id="heroIn">
       <div>
@@ -550,7 +550,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 2 Vision 2030 context: pinned zoom -->
   <section class="zoom" id="context" data-scene data-label="Vision 2030 context">
-    <div class="zoom-img" id="zoomImg"><img src="img/heritage.jpg" alt="Riyadh old and new: Masmak-style heritage architecture in front of the Kingdom Centre skyline"></div>
+    <div class="zoom-img" id="zoomImg"><img src="img/heritage.jpg?v=5" alt="Riyadh old and new: Masmak-style heritage architecture in front of the Kingdom Centre skyline"></div>
     <div class="zoom-head">
       <div class="eyebrow">Vision 2030 context</div>
       <h2 id="zoomTitle">Modernizing the Kingdom's banking spine.</h2>
@@ -571,10 +571,10 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
           <p class="body-copy">Pick the one you lead. It becomes the starting point of your case below.</p>
           <div class="count"><span id="railNum">01 / 04</span><i id="railBar"></i></div>
         </div>
-        <article class="seg-card"><img src="img/seg-retail.jpg" alt=""><span class="big">01</span><span class="eyebrow">Sub-segment</span><h3>Retail Banking</h3><p>Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.</p><button class="pick" type="button" data-pickseg="retail" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-corporate.jpg" alt=""><span class="big">02</span><span class="eyebrow">Sub-segment</span><h3>Corporate Banking</h3><p>Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.</p><button class="pick" type="button" data-pickseg="corp" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-treasury.jpg" alt=""><span class="big">03</span><span class="eyebrow">Sub-segment</span><h3>Treasury &amp; Capital Markets</h3><p>Core treasury platforms, capital-markets connectivity, and liquidity management.</p><button class="pick" type="button" data-pickseg="treasury" data-cursor="ADD">Make this my focus +</button></article>
-        <article class="seg-card"><img src="img/seg-risk.jpg" alt=""><span class="big">04</span><span class="eyebrow">Sub-segment</span><h3>Compliance &amp; Risk</h3><p>SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.</p><button class="pick" type="button" data-pickseg="risk" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-retail.jpg?v=5" alt=""><span class="big">01</span><span class="eyebrow">Sub-segment</span><h3>Retail Banking</h3><p>Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.</p><button class="pick" type="button" data-pickseg="retail" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-corporate.jpg?v=5" alt=""><span class="big">02</span><span class="eyebrow">Sub-segment</span><h3>Corporate Banking</h3><p>Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.</p><button class="pick" type="button" data-pickseg="corp" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-treasury.jpg?v=5" alt=""><span class="big">03</span><span class="eyebrow">Sub-segment</span><h3>Treasury &amp; Capital Markets</h3><p>Core treasury platforms, capital-markets connectivity, and liquidity management.</p><button class="pick" type="button" data-pickseg="treasury" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-risk.jpg?v=5" alt=""><span class="big">04</span><span class="eyebrow">Sub-segment</span><h3>Compliance &amp; Risk</h3><p>SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.</p><button class="pick" type="button" data-pickseg="risk" data-cursor="ADD">Make this my focus +</button></article>
       </div>
     </div>
   </section>
@@ -592,12 +592,12 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
     <div class="eyebrow" data-reveal>Capabilities applied</div>
     <h2 class="h-display" data-reveal>The capabilities behind the sector.</h2>
     <ul class="cap-list" id="capList">
-      <li class="cap-row" tabindex="0" role="button" data-img="0" data-open="erp" data-cursor="OPEN"><img class="thumb" src="img/cap-erp.jpg" alt=""><span class="n">01</span><h3>Enterprise Apps &amp; ERP</h3><p>SAP, Oracle, core banking platforms.</p><span class="act">EXPLORE →</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="1" data-addcap="staff" data-cursor="ADD"><img class="thumb" src="img/cap-staff.jpg" alt=""><span class="n">02</span><h3>Staffing Solutions</h3><p>Sector-fluent banking specialists on demand.</p><span class="act">ADD TO CASE +</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="2" data-addcap="data" data-cursor="ADD"><img class="thumb" src="img/cap-data.jpg" alt=""><span class="n">03</span><h3>Data &amp; AI</h3><p>Risk analytics, fraud detection, customer intelligence.</p><span class="act">ADD TO CASE +</span></li>
-      <li class="cap-row" tabindex="0" role="button" data-img="3" data-addcap="cloud" data-cursor="ADD"><img class="thumb" src="img/cap-cloud.jpg" alt=""><span class="n">04</span><h3>Cloud &amp; Infra</h3><p>Sovereign cloud, hybrid models, disaster recovery.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="0" data-open="erp" data-cursor="OPEN"><img class="thumb" src="img/cap-erp.jpg?v=5" alt=""><span class="n">01</span><h3>Enterprise Apps &amp; ERP</h3><p>SAP, Oracle, core banking platforms.</p><span class="act">EXPLORE →</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="1" data-addcap="staff" data-cursor="ADD"><img class="thumb" src="img/cap-staff.jpg?v=5" alt=""><span class="n">02</span><h3>Staffing Solutions</h3><p>Sector-fluent banking specialists on demand.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="2" data-addcap="data" data-cursor="ADD"><img class="thumb" src="img/cap-data.jpg?v=5" alt=""><span class="n">03</span><h3>Data &amp; AI</h3><p>Risk analytics, fraud detection, customer intelligence.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="3" data-addcap="cloud" data-cursor="ADD"><img class="thumb" src="img/cap-cloud.jpg?v=5" alt=""><span class="n">04</span><h3>Cloud &amp; Infra</h3><p>Sovereign cloud, hybrid models, disaster recovery.</p><span class="act">ADD TO CASE +</span></li>
     </ul>
-    <div class="hover-img" id="hoverImg" aria-hidden="true"><img src="img/cap-erp.jpg" alt=""><img src="img/cap-staff.jpg" alt=""><img src="img/cap-data.jpg" alt=""><img src="img/cap-cloud.jpg" alt=""></div>
+    <div class="hover-img" id="hoverImg" aria-hidden="true"><img src="img/cap-erp.jpg?v=5" alt=""><img src="img/cap-staff.jpg?v=5" alt=""><img src="img/cap-data.jpg?v=5" alt=""><img src="img/cap-cloud.jpg?v=5" alt=""></div>
   </section>
 
   <!-- 5 Builder -->
@@ -613,7 +613,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
       <div id="bsteps"></div>
       <aside class="sheet" aria-live="polite">
         <div class="sheet-top">
-          <img src="img/builder.jpg" alt="">
+          <img src="img/builder.jpg?v=5" alt="">
           <div class="t"><span class="eyebrow" id="sheetFor">Your transformation case</span><h3 id="sheetTitle">Financial services transformation</h3></div>
         </div>
         <div class="sheet-body" id="sheet"></div>
@@ -623,7 +623,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 6 Case study, pinned -->
   <section class="case-pin" id="cases" data-scene data-label="Sector case studies">
-    <div class="case-media"><img id="caseImg" src="img/metro.jpg" alt="Riyadh Metro train arriving at the KAFD station at dusk"><span class="tag tag-float">Banking</span></div>
+    <div class="case-media"><img id="caseImg" src="img/metro.jpg?v=5" alt="Riyadh Metro train arriving at the KAFD station at dusk"><span class="tag tag-float">Banking</span></div>
     <div class="case-copy">
       <div class="eyebrow">Sector case studies · Proof, at national scale.</div>
       <h2>Core modernization without downtime</h2>
@@ -663,13 +663,13 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
     <div class="eyebrow" data-reveal>Sector insights</div>
     <h2 class="h-display" data-reveal>Themes shaping Saudi banking.</h2>
     <div class="ins-grid">
-      <article class="ins" data-tilt data-cursor="READ" data-open="playbook" tabindex="0" role="button"><img src="img/ins-sama.jpg" alt=""><span class="tags">Banking · Regulation</span><h3>SAMA modernization mandate</h3><p>The regulatory roadmap driving simultaneous transformation across all major Saudi banks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
-      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-regtech.jpg" alt=""><span class="tags">RegTech · Compliance</span><h3>Scaling regulatory technology</h3><p>How Saudi banking platforms are keeping pace with expanding regulatory reporting.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
-      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-mobile.jpg" alt=""><span class="tags">Digital · Customer Experience</span><h3>The mobile-first banking shift</h3><p>Why digital banking adoption rates in the Kingdom are outpacing global benchmarks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-open="playbook" tabindex="0" role="button"><img src="img/ins-sama.jpg?v=5" alt=""><span class="tags">Banking · Regulation</span><h3>SAMA modernization mandate</h3><p>The regulatory roadmap driving simultaneous transformation across all major Saudi banks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-regtech.jpg?v=5" alt=""><span class="tags">RegTech · Compliance</span><h3>Scaling regulatory technology</h3><p>How Saudi banking platforms are keeping pace with expanding regulatory reporting.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-mobile.jpg?v=5" alt=""><span class="tags">Digital · Customer Experience</span><h3>The mobile-first banking shift</h3><p>Why digital banking adoption rates in the Kingdom are outpacing global benchmarks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
     </div>
     <div class="reads">
-      <button type="button" class="panel read" data-open="playbook" data-cursor="READ"><img src="img/kafd-dusk.jpg" alt=""><span><span class="eyebrow">Market insights · Banking · 8 min read</span><h4>Orchestrating Saudi Banking Modernization: A reference playbook.</h4><p>The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels.</p></span></button>
-      <button type="button" class="panel read" data-open="orchestrator" data-cursor="READ"><img src="img/network.jpg" alt=""><span><span class="eyebrow">Executive commentary · 6 min read</span><h4>From integrator to strategic partner: why the model has to change.</h4><p>The post-integration economy is here.</p></span></button>
+      <button type="button" class="panel read" data-open="playbook" data-cursor="READ"><img src="img/kafd-dusk.jpg?v=5" alt=""><span><span class="eyebrow">Market insights · Banking · 8 min read</span><h4>Orchestrating Saudi Banking Modernization: A reference playbook.</h4><p>The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels.</p></span></button>
+      <button type="button" class="panel read" data-open="orchestrator" data-cursor="READ"><img src="img/network.jpg?v=5" alt=""><span><span class="eyebrow">Executive commentary · 6 min read</span><h4>From integrator to strategic partner: why the model has to change.</h4><p>The post-integration economy is here.</p></span></button>
     </div>
   </section>
 
@@ -704,7 +704,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
   <!-- 9 CTA -->
   <section class="cta" id="next" data-scene data-label="Next step">
-    <div class="cta-bg" id="ctaBg"><img src="img/cta.jpg" alt="Riyadh skyline at night with the Kingdom Centre and Al Faisaliah towers"></div>
+    <div class="cta-bg" id="ctaBg"><img src="img/cta.jpg?v=5" alt="Riyadh skyline at night with the Kingdom Centre and Al Faisaliah towers"></div>
     <div class="cta-in">
       <div class="eyebrow">Next step</div>
       <h2><span>Ready to</span><span>modernize?</span></h2>
@@ -773,7 +773,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
         </div>
       </form>
       <aside class="panel ws-aside">
-        <img src="img/workshop.jpg" alt="">
+        <img src="img/workshop.jpg?v=5" alt="">
         <div class="in">
           <div class="eyebrow">What happens next</div>
           <h3 class="h-display" style="font-size:2.2rem;margin:.25em 0 .6em">Three simple steps.</h3>
@@ -795,13 +795,13 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 
 <footer id="foot">
   <div class="foot-grid">
-    <div><img src="img/ejada-logo-white.png" alt="Ejada" style="height:40px;width:auto"><p class="tagline">The Kingdom's Strategic Partner for Digital Transformation.</p></div>
+    <div><img src="img/ejada-logo-white.png?v=5" alt="Ejada" style="height:40px;width:auto"><p class="tagline">The Kingdom's Strategic Partner for Digital Transformation.</p></div>
     <div><h5>CAPABILITIES</h5><ul><li>Enterprise Apps &amp; ERP</li><li>Data &amp; AI</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li><li>Digital Transformation &amp; UX</li><li>Managed Services</li><li>Staffing Solutions</li></ul></div>
     <div><h5>SECTORS</h5><ul><li>Financial Services</li><li>Government</li><li>Healthcare</li><li>Energy &amp; Utilities</li><li>Retail &amp; Consumer</li><li>Real Estate</li><li>Transport &amp; Logistics</li><li>Mega Projects</li></ul></div>
     <div><h5>ABOUT</h5><ul><li>Overview</li><li>Leadership</li><li>Timeline</li><li>Culture</li><li>Careers</li></ul></div>
     <div><h5>ENGAGE</h5><ul><li>Request a Workshop</li><li>Visit HQ</li><li>Partner With Ejada</li><li>Contact</li></ul></div>
   </div>
-  <div class="foot-big" aria-hidden="true"><img src="img/ejada-logo-white.png" alt=""></div>
+  <div class="foot-big" aria-hidden="true"><img src="img/ejada-logo-white.png?v=5" alt=""></div>
   <div class="foot-base"><span>Interactive prototype · Sector Website Profiles · Sector Marketing</span><span>Pre-launch content · imagery is placeholder · not yet validated</span></div>
 </footer>
 
@@ -809,7 +809,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
 <template id="t-corecase">
   <div class="eyebrow">Case study · Financial Services</div>
   <h2>How a leading Saudi bank modernized its core without a minute of downtime.</h2>
-  <img class="hero-img" src="img/metro.jpg" alt="">
+  <img class="hero-img" src="img/metro.jpg?v=5" alt="">
   <p class="standfirst">A major SAMA-regulated institution modernized its core banking platform while serving 700,000+ daily regulatory requests. Zero unplanned outages. 11 vendors orchestrated across 22 months.</p>
   <ul class="chips"><li>Enterprise Apps &amp; ERP</li><li>Staffing Solutions</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li></ul>
   <div class="dstats"><div><b>700,000+</b><span>DAILY SAMA REQUESTS</span></div><div><b>0</b><span>MINUTES DOWNTIME</span></div><div><b>11</b><span>VENDORS ORCHESTRATED</span></div></div>
@@ -1004,7 +1004,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
       drawer = document.createElement("aside"); drawer.className = "drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("data-lenis-prevent", "");
       document.body.append(scrim, drawer); scrim.addEventListener("click", closeDrawer);
     }
-    drawer.innerHTML = '<div class="drawer-bar"><img src="img/ejada-logo-white.png" alt="Ejada" style="height:26px;width:auto"><button class="close" type="button" data-close>Close ✕</button></div>';
+    drawer.innerHTML = '<div class="drawer-bar"><img src="img/ejada-logo-white.png?v=5" alt="Ejada" style="height:26px;width:auto"><button class="close" type="button" data-close>Close ✕</button></div>';
     drawer.appendChild(tpl.content.cloneNode(true));
     drawer.setAttribute("aria-label", (drawer.querySelector("h2") || {}).textContent || "Reader");
     scrim.hidden = false; drawer.hidden = false; drawer.scrollTop = 0;
@@ -1346,7 +1346,7 @@ footer { position: relative; background: var(--surface); border-top: 1px solid v
   var loader = document.createElement("div");
   loader.setAttribute("aria-hidden", "true");
   loader.style.cssText = "position:fixed;inset:0;z-index:100;background:#050B2D;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px";
-  loader.innerHTML = '<img src="img/ejada-logo-white.png" alt="" style="height:54px;width:auto">' +
+  loader.innerHTML = '<img src="img/ejada-logo-white.png?v=5" alt="" style="height:54px;width:auto">' +
     '<div style="width:min(260px,60vw);height:2px;background:rgba(245,243,240,.12);overflow:hidden"><i style="display:block;height:100%;width:100%;background:linear-gradient(90deg,#009EE0,#1FED93);transform-origin:0 50%;transform:scaleX(0)"></i></div>' +
     '<span style="font:500 .7rem \'JetBrains Mono\',monospace;letter-spacing:.2em;color:rgba(245,243,240,.6)">000</span>';
   document.body.appendChild(loader);
