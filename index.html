@@ -1,0 +1,1442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ejada Financial Services: the engine room of the Kingdom's banking spine. Interactive prototype by Sector Marketing.">
+<meta property="og:title" content="Ejada Financial Services">
+<meta property="og:description" content="Transforming financial institutions into resilient, intelligent, growth-ready enterprises.">
+<meta property="og:image" content="img/hero-poster.jpg">
+<meta name="theme-color" content="#050B2D">
+<link rel="icon" href="img/ejada-logo-navy.png">
+<style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style>
+<title>Ejada Financial Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: cinematic scroll film in Ejada dark-mode brand — video hero, pinned zoom reveal, horizontal sub-segment rail, hover-reveal capability list, case builder, pinned case story */
+:root {
+  --surface: #050B2D;   /* Ejada dark · Surface */
+  --elevated: #000850;  /* Ejada dark · Elevated */
+  --navy: #001081;      /* Ejada Navy */
+  --sky: #0070C0;       /* Ejada Sky */
+  --sky-light: #009EE0; /* Ejada dark · Sky Light */
+  --mint: #1FED93;      /* Ejada dark · Neon Mint (accent) */
+  --cream: #F5F3F0;     /* Ejada Cream */
+  --mute: rgba(245, 243, 240, 0.66);
+  --line: rgba(245, 243, 240, 0.14);
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gutter: clamp(16px, 5vw, 72px);
+  --panel: rgba(0, 8, 80, 0.42);
+  --box: rgba(5, 11, 45, 0.6);
+  --ghost: rgba(5, 11, 45, 0.35);
+  --navsolid: rgba(5, 11, 45, 0.82);
+  --chip: rgba(0, 16, 129, 0.6);
+  --line-strong: rgba(245, 243, 240, 0.3);
+  color-scheme: dark;
+}
+/* ---------- light edition (Ejada "navy on cream, sky as accent") ---------- */
+html.light {
+  --surface: #F5F3F0; --elevated: #FAF8F5; --cream: #0B1A4A; --mute: rgba(11, 26, 74, 0.68);
+  --line: rgba(0, 16, 129, 0.14); --line-strong: rgba(0, 16, 129, 0.28);
+  --mint: #0070C0; --sky-light: #0070C0;
+  --panel: rgba(255, 255, 255, 0.85); --box: #FFFFFF; --ghost: rgba(255, 255, 255, 0.72); --navsolid: rgba(245, 243, 240, 0.9); --chip: #FFFFFF;
+  color-scheme: light;
+}
+html.light :is(.announce, .zoom, .seg-card, .ins, .cta, .case-media, .sheet, .mega, .menu.open, .marquee, .quote) {
+  --surface: #050B2D; --elevated: #000850; --cream: #F5F3F0; --mute: rgba(245, 243, 240, 0.66);
+  --line: rgba(245, 243, 240, 0.14); --line-strong: rgba(245, 243, 240, 0.3);
+  --mint: #1FED93; --sky-light: #009EE0;
+  --panel: rgba(0, 8, 80, 0.42); --box: rgba(5, 11, 45, 0.6); --ghost: rgba(5, 11, 45, 0.35); --chip: rgba(0, 16, 129, 0.6);
+  color: var(--cream); color-scheme: dark;
+}
+html.light .btn-primary:hover { background: var(--navy); color: #fff; }
+html.light .panel { box-shadow: 0 14px 40px rgba(0, 16, 129, 0.06); }
+html.light .nav { background: var(--navsolid); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+html.light .hero-media::after { background: linear-gradient(90deg, rgba(245,243,240,.97) 0%, rgba(245,243,240,.86) 32%, rgba(245,243,240,.18) 62%, rgba(245,243,240,0) 100%), linear-gradient(0deg, #F5F3F0 0%, rgba(245,243,240,0) 40%); }
+html.light .case-media::after { background: linear-gradient(90deg, rgba(245,243,240,0) 60%, #F5F3F0 100%), linear-gradient(0deg, rgba(5,11,45,.5), rgba(5,11,45,0) 40%); }
+html.light .case-copy > p { color: var(--mute); }
+html.light :is(.logo img, footer img, .drawer-bar img) { content: url("img/ejada-logo-navy.png"); }
+html.light .foot-big { opacity: .06; }
+html.light .cursor { mix-blend-mode: normal; }
+html.light .dots button { background: rgba(0, 16, 129, 0.22); }
+html.light .opt[aria-pressed="true"], html.light .choice input:checked + span, html.light .attached { background: rgba(0, 112, 192, 0.1); }
+html.light .papers li.match { background: linear-gradient(90deg, rgba(0,112,192,.1), transparent); }
+html.light .close { background: #fff; }
+.theme-btn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; background: var(--ghost); color: var(--cream); border: 1px solid var(--line-strong); border-radius: 999px; padding: 9px 13px; font: 500 0.68rem var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+.theme-btn i { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid currentColor; background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+.theme-btn:hover { border-color: var(--sky-light); }
+* { box-sizing: border-box; }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+body { background: var(--surface); color: var(--cream); font-family: var(--body); font-size: 16px; line-height: 1.55; overflow-x: hidden; }
+a { color: inherit; }
+button { font: inherit; }
+img, video { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--mint); color: var(--surface); }
+.eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mint); }
+.eyebrow.dim { color: var(--mute); }
+.h-display { overflow-wrap: break-word; font-family: var(--display); font-weight: 900; text-transform: uppercase; line-height: 0.9; text-wrap: balance; margin: 0.3em 0 0.35em; font-size: clamp(2.4rem, 5vw, 4.6rem); }
+.body-copy { color: var(--mute); max-width: 40rem; margin: 0; }
+.link { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sky-light); text-decoration: none; background: none; border: 0; padding: 0; cursor: pointer; }
+.link:hover { color: var(--mint); }
+.btn { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; font: 500 0.78rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase; padding: 15px 22px; border-radius: 999px; border: 1px solid transparent; transition: background .2s, color .2s, border-color .2s, opacity .2s; will-change: transform; }
+.btn-primary { background: var(--mint); color: var(--surface); }
+.btn-primary:hover { background: #fff; }
+.btn-ghost { border-color: var(--line-strong); color: var(--cream); background: var(--ghost); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.btn-ghost:hover { border-color: var(--sky-light); }
+.btn[disabled] { opacity: .4; cursor: not-allowed; }
+.panel { background: var(--panel); -webkit-backdrop-filter: blur(18px) saturate(1.3); backdrop-filter: blur(18px) saturate(1.3); border: 1px solid var(--line); border-radius: 18px; padding: clamp(20px, 2.6vw, 30px); }
+.line-mask { display: block; overflow: hidden; padding-bottom: .04em; }
+.line-mask > span { display: block; }
+
+/* ---------- cursor ---------- */
+.cursor { position: fixed; left: 0; top: 0; z-index: 90; pointer-events: none; width: 10px; height: 10px; margin: -5px 0 0 -5px; border-radius: 50%; background: var(--mint); mix-blend-mode: difference; transition: width .3s, height .3s, margin .3s, background .3s; display: grid; place-items: center; }
+.cursor b { font: 500 0.6rem var(--mono); letter-spacing: .14em; color: var(--surface); opacity: 0; transition: opacity .2s; white-space: nowrap; }
+.cursor.big { width: 84px; height: 84px; margin: -42px 0 0 -42px; mix-blend-mode: normal; background: var(--mint); }
+.cursor.big b { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
+/* ---------- chrome ---------- */
+.top { position: fixed; top: 0; left: 0; right: 0; z-index: 20; padding-top: env(safe-area-inset-top, 0px); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+.top.hide { transform: translateY(-100%); }
+.announce { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 7px var(--gutter); background: var(--navy); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; }
+.announce b { color: var(--mint); font-weight: 500; }
+.announce .util { display: flex; gap: 18px; white-space: nowrap; }
+.announce .util a { text-decoration: none; color: var(--mute); }
+.announce .util a:hover { color: var(--cream); }
+.nav { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 14px var(--gutter); transition: background .35s, border-color .35s; border-bottom: 1px solid transparent; }
+.top.solid .nav { background: var(--navsolid); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+.logo img { height: 34px; width: auto; display: block; }
+.menu { display: flex; align-items: center; gap: 4px; }
+.menu > button, .menu > a { background: none; border: 0; color: var(--cream); cursor: pointer; text-decoration: none; font: 500 0.88rem var(--body); padding: 8px 12px; border-radius: 8px; transition: color .2s, background .2s; }
+.menu > button:hover, .menu > a:hover, .menu > button[aria-expanded="true"] { color: var(--cream); background: rgba(245, 243, 240, 0.08); }
+.menu .lang { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; }
+.nav .btn { padding: 11px 16px; }
+.burger { display: none; background: none; border: 1px solid var(--line); color: var(--cream); border-radius: 10px; padding: 8px 12px; cursor: pointer; font-family: var(--mono); font-size: 0.7rem; letter-spacing: .12em; }
+.mega { position: absolute; left: var(--gutter); right: var(--gutter); top: calc(100% + 8px); display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(0, 1fr); background: rgba(0, 8, 80, 0.95); -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.mega-list { padding: 22px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; }
+.mega-list .eyebrow { grid-column: 1 / -1; margin-bottom: 8px; }
+.mega-item { display: grid; gap: 1px; padding: 10px 12px; border-radius: 10px; text-decoration: none; }
+.mega-item:hover { background: rgba(245, 243, 240, 0.06); }
+.mega-item b { font-weight: 600; font-size: 0.95rem; }
+.mega-item span { color: var(--mute); font-size: 0.85rem; }
+.mega-item.current b { color: var(--mint); }
+.mega-side { position: relative; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; overflow: hidden; min-height: 260px; }
+.mega-side img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mega-side::before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(0,112,192,.7), rgba(0,16,129,.92)); z-index: 1; }
+.mega-side > div, .mega-side > a { position: relative; z-index: 2; }
+.mega-side p { font-family: var(--display); font-weight: 800; font-size: 1.9rem; line-height: 1; text-transform: uppercase; margin: 8px 0 0; }
+.dots { position: fixed; right: 18px; top: 55%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: 9px; }
+.dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; cursor: pointer; background: rgba(245, 243, 240, 0.3); transition: height .3s, background .3s; }
+.dots button[aria-current="true"] { height: 24px; background: var(--mint); }
+.progress { position: fixed; left: 0; top: 0; height: 2px; width: 100%; z-index: 30; transform-origin: 0 50%; transform: scaleX(0); background: linear-gradient(90deg, var(--sky-light), var(--mint)); }
+
+main > section { padding-inline: var(--gutter); }
+
+/* ---------- 1 hero ---------- */
+.hero { position: relative; height: 100svh; min-height: 640px; padding: 0 !important; overflow: hidden; }
+.hero-media { position: absolute; inset: 0; overflow: hidden; will-change: transform, border-radius; }
+.hero-media video, .hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,11,45,.9) 0%, rgba(5,11,45,.55) 38%, rgba(5,11,45,.1) 70%), linear-gradient(0deg, rgba(5,11,45,.95) 0%, rgba(5,11,45,0) 45%), linear-gradient(180deg, rgba(5,11,45,.6) 0%, rgba(5,11,45,0) 20%); }
+.hero-in { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: 34px; padding: 150px var(--gutter) 34px; }
+.hero h1 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.8rem, 6.6vw, 7.2rem); line-height: 0.86; margin: 0.22em 0 0.22em; }
+.hero h1 em { font-style: normal; color: var(--sky-light); }
+.hero .sub { font-size: clamp(1.02rem, 1.4vw, 1.25rem); max-width: 32rem; margin: 0 0 24px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-strong); }
+.stat { padding: 16px 18px 0 0; min-width: 0; }
+.stat + .stat { padding-left: 18px; border-left: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(2.2rem, 4.2vw, 3.8rem); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat:first-child b { color: var(--mint); }
+.stat span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; color: var(--mute); }
+.scroll-cue { position: absolute; right: var(--gutter); bottom: 150px; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 10px; font-family: var(--mono); font-size: .62rem; letter-spacing: .3em; color: var(--mute); writing-mode: vertical-rl; }
+.scroll-cue i { display: block; width: 1px; height: 60px; background: linear-gradient(var(--mint), transparent); animation: cue 1.8s ease-in-out infinite; }
+@keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* ---------- 2 pinned zoom ---------- */
+.zoom { position: relative; height: 100svh; padding: 0 !important; overflow: hidden; }
+.zoom-img { position: absolute; inset: 0; clip-path: inset(22% 30% 22% 30% round 28px); will-change: clip-path; }
+.zoom-img img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.25); will-change: transform; }
+.zoom-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(5,11,45,.92) 0%, rgba(5,11,45,.35) 50%, rgba(5,11,45,.55) 100%); }
+.zoom-head { position: absolute; left: var(--gutter); right: var(--gutter); top: 15vh; z-index: 2; text-align: center; pointer-events: none; }
+.zoom-head h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.6rem, 7vw, 7rem); line-height: .86; margin: .2em auto 0; max-width: 16ch; }
+.zoom-head h2 .w { display: inline-block; opacity: .18; transition: none; }
+.zoom-body { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 9vh; z-index: 2; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+.zoom-body p { margin: 0; font-size: clamp(1rem, 1.3vw, 1.18rem); color: rgba(245,243,240,.9); max-width: 40rem; }
+.zoom-body .tagline { font-family: var(--display); font-weight: 800; font-size: clamp(1.6rem, 2.6vw, 2.4rem); text-transform: uppercase; line-height: 1; color: var(--mint); }
+
+/* ---------- 3 horizontal rail ---------- */
+.rail { position: relative; padding: 0 !important; overflow: hidden; }
+.rail-in { height: 100svh; display: flex; align-items: center; }
+.rail-track { display: flex; gap: 18px; padding: 0 var(--gutter); will-change: transform; }
+.rail-intro { flex: 0 0 min(36vw, 520px); display: flex; flex-direction: column; justify-content: center; padding-right: 30px; }
+.rail-intro .h-display { font-size: clamp(2.6rem, 5vw, 5rem); }
+.rail-intro .count { font-family: var(--mono); font-size: .72rem; letter-spacing: .14em; color: var(--mute); margin-top: 18px; display: flex; align-items: center; gap: 12px; }
+.rail-intro .count i { display: block; width: 80px; height: 1px; background: var(--line); position: relative; overflow: hidden; }
+.rail-intro .count i::after { content: ""; position: absolute; inset: 0; background: var(--mint); transform-origin: 0 50%; transform: scaleX(var(--rp, 0)); }
+.seg-card { position: relative; flex: 0 0 min(64vw, 900px); height: min(76svh, 680px); border-radius: 26px; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(22px, 3vw, 40px); }
+.seg-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transform: scale(1.15); will-change: transform; }
+.seg-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(5,11,45,.95) 0%, rgba(5,11,45,.55) 45%, rgba(5,11,45,.1) 80%); }
+.seg-card .big { position: absolute; top: 10px; right: 26px; font-family: var(--display); font-weight: 900; font-size: clamp(6rem, 14vw, 13rem); line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(245,243,240,.55); }
+.seg-card h3 { font-family: var(--display); font-weight: 900; font-size: clamp(2.4rem, 4.6vw, 4.6rem); text-transform: uppercase; line-height: .9; margin: 6px 0 12px; max-width: 12ch; }
+.seg-card p { margin: 0 0 18px; max-width: 34rem; color: rgba(245,243,240,.88); font-size: 1.02rem; }
+.pick { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; cursor: pointer; font: 500 .7rem var(--mono); letter-spacing: .14em; text-transform: uppercase; padding: 11px 16px; border-radius: 999px; border: 1px solid rgba(245,243,240,.35); background: rgba(5,11,45,.45); color: var(--cream); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transition: all .25s; }
+.pick:hover { border-color: var(--mint); }
+.pick[aria-pressed="true"] { background: var(--mint); color: var(--surface); border-color: var(--mint); }
+
+/* ---------- marquee ---------- */
+.marquee { padding: 34px 0 !important; overflow: hidden; border-block: 1px solid var(--line); background: var(--elevated); }
+.marquee-track { display: flex; width: max-content; will-change: transform; }
+.marquee-track span { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(3rem, 8vw, 7.5rem); line-height: 1; padding-right: .5em; white-space: nowrap; }
+.marquee-track span:nth-child(odd) { color: transparent; -webkit-text-stroke: 1.5px var(--sky-light); }
+.marquee-track span i { font-style: normal; color: var(--mint); -webkit-text-stroke: 0; padding-left: .5em; }
+
+/* ---------- 4 capability list ---------- */
+.caps { padding-block: 130px; position: relative; }
+.cap-list { list-style: none; margin: 34px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.cap-row { display: grid; grid-template-columns: 70px minmax(0, 1.4fr) minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 26px 0; border-bottom: 1px solid var(--line); cursor: pointer; position: relative; }
+.cap-row::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,158,224,.14), transparent 70%); transform: scaleX(0); transform-origin: 0 50%; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.cap-row:hover::before, .cap-row:focus-visible::before { transform: scaleX(1); }
+.cap-row .n { font-family: var(--mono); font-size: .72rem; color: var(--sky-light); position: relative; }
+.cap-row h3 { position: relative; margin: 0; font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 5.6vw, 5.4rem); line-height: .9; transition: transform .45s cubic-bezier(.2,.7,.2,1), color .3s; }
+.cap-row:hover h3 { transform: translateX(18px); color: var(--mint); }
+.cap-row p { position: relative; margin: 0; color: var(--mute); }
+.cap-row .act { position: relative; font: 500 .68rem var(--mono); letter-spacing: .14em; color: var(--sky-light); white-space: nowrap; }
+.cap-row .thumb { display: none; }
+.hover-img { position: fixed; left: 0; top: 0; z-index: 15; width: 300px; height: 380px; pointer-events: none; border-radius: 18px; overflow: hidden; opacity: 0; transform: translate(-50%, -50%) scale(.8); transition: opacity .3s, transform .4s cubic-bezier(.2,.7,.2,1); box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+.hover-img.on { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+.hover-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s; }
+.hover-img img.on { opacity: 1; }
+
+/* ---------- 5 builder ---------- */
+.builder { padding-block: 130px; position: relative; }
+.builder-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr); gap: 40px; align-items: end; margin-bottom: 34px; }
+.bgrid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 22px; align-items: start; }
+.bstep { padding: 24px 0; border-top: 1px solid var(--line); }
+.bstep:first-child { border-top: 0; padding-top: 0; }
+.bstep-h { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+.bstep-h .n { font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; color: var(--sky-light); min-width: 40px; transition: color .3s; }
+.bstep-h .n.done { color: var(--mint); }
+.bstep-h h3 { margin: 0; font: 600 1.15rem var(--body); }
+.bstep-h small { display: block; color: var(--mute); font-size: .86rem; font-weight: 400; margin-top: 2px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { cursor: pointer; text-align: left; color: var(--cream); background: rgba(245, 243, 240, 0.04); border: 1px solid var(--line); border-radius: 12px; padding: 11px 14px; transition: border-color .2s, background .2s, transform .15s; max-width: 100%; }
+.opt:hover { border-color: rgba(0, 158, 224, 0.7); }
+.opt:active { transform: scale(.98); }
+.opt[aria-pressed="true"] { background: rgba(31, 237, 147, 0.14); border-color: var(--mint); }
+.opt b { display: block; font-weight: 600; font-size: .95rem; }
+.opt span { display: block; color: var(--mute); font-size: .82rem; margin-top: 2px; }
+.opt.big { flex: 1 1 220px; }
+.org { display: grid; gap: 6px; margin-top: 12px; font-size: .82rem; color: var(--mute); max-width: 380px; }
+.org input { font: 400 .98rem var(--body); color: var(--cream); background: var(--box); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.sheet { position: sticky; top: 110px; border-radius: 22px; overflow: hidden; border: 1px solid rgba(0, 158, 224, 0.35); background: linear-gradient(180deg, rgba(0, 16, 129, 0.85), rgba(5, 11, 45, 0.95)); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35); }
+.sheet-top { position: relative; height: 170px; overflow: hidden; }
+.sheet-top img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; display: block; }
+.sheet-top::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,16,129,.1), rgba(0,16,129,.95)); }
+.sheet-top .t { position: absolute; left: 22px; right: 22px; bottom: 16px; z-index: 2; }
+.sheet-top h3 { margin: 4px 0 0; font-family: var(--display); font-weight: 900; font-size: 1.9rem; line-height: .95; text-transform: uppercase; }
+.sheet-body { padding: 18px 22px 22px; display: grid; gap: 16px; }
+.meter { display: grid; gap: 6px; }
+.meter-row { display: flex; justify-content: space-between; font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; color: var(--mute); }
+.meter-bar { height: 6px; border-radius: 6px; background: rgba(245,243,240,.1); overflow: hidden; }
+.meter-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--sky-light), var(--mint)); transition: width .5s cubic-bezier(.2,.7,.2,1); }
+.srow { display: grid; gap: 6px; }
+.srow > .eyebrow { color: var(--sky-light); font-size: .64rem; }
+.srow .empty { color: var(--mute); font-size: .88rem; font-style: italic; }
+.srow ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.srow li { font-size: .9rem; padding: 8px 10px; border-radius: 10px; background: var(--box); border: 1px solid var(--line); animation: pop .35s ease; }
+.srow li small { display: block; color: var(--mute); font-size: .8rem; }
+.srow li.proof { cursor: pointer; }
+.srow li.proof:hover { border-color: var(--mint); }
+@keyframes pop { from { opacity: 0; transform: translateY(4px); } }
+.phase-line { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.phase-line span { text-align: center; font-family: var(--mono); font-size: .64rem; letter-spacing: .08em; padding: 8px 4px; border-radius: 8px; background: rgba(0, 112, 192, 0.3); border: 1px solid rgba(0, 158, 224, 0.4); }
+.sol { padding: 12px 14px; border-radius: 12px; background: rgba(31, 237, 147, 0.1); border: 1px solid rgba(31, 237, 147, 0.45); }
+.sol b { display: block; }
+.sol span { font-size: .86rem; color: rgba(245,243,240,.85); }
+.sheet-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.sheet-actions .btn { padding: 12px 16px; font-size: .7rem; }
+
+/* ---------- 6 pinned case ---------- */
+.case-pin { position: relative; height: 100svh; padding: 0 !important; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.case-media { position: relative; overflow: hidden; }
+.case-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.2); will-change: transform; }
+.case-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,11,45,0) 60%, var(--surface) 100%), linear-gradient(0deg, rgba(5,11,45,.6), rgba(5,11,45,0) 40%); }
+.case-media .tag-float { position: absolute; left: 28px; bottom: 28px; z-index: 2; }
+.case-copy { display: flex; flex-direction: column; justify-content: center; padding: 120px var(--gutter) 60px clamp(24px, 4vw, 60px); gap: 18px; }
+.tag { align-self: flex-start; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--mint); color: var(--mint); background: var(--ghost); }
+.case-copy h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.4rem, 4.4vw, 4.4rem); line-height: .9; margin: 0; text-wrap: balance; }
+.case-copy > p { margin: 0; color: rgba(245,243,240,.85); max-width: 36rem; }
+.cstats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.cstats div { padding: 16px; border-radius: 14px; border: 1px solid var(--line); background: var(--box); }
+.cstats b { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(1.8rem, 2.6vw, 2.6rem); overflow-wrap: anywhere; line-height: 1; color: var(--mint); font-variant-numeric: tabular-nums; }
+.cstats span { font-family: var(--mono); font-size: .6rem; letter-spacing: .12em; color: var(--mute); }
+.timeline { display: grid; grid-template-columns: 6fr 6fr 10fr; gap: 6px; }
+.timeline div { position: relative; padding: 10px 12px 12px; border-radius: 10px; background: var(--box); border: 1px solid var(--line); overflow: hidden; }
+.timeline div::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--sky-light), var(--mint)); transform-origin: 0 50%; transform: scaleX(var(--p, 1)); }
+.timeline b { display: block; font-size: .88rem; }
+.timeline span { font-family: var(--mono); font-size: .62rem; color: var(--mute); }
+.more-cases { padding-block: 30px 120px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.case { display: flex; flex-direction: column; gap: 10px; transform-style: preserve-3d; transition: transform .2s ease-out, border-color .3s; }
+.case:hover { border-color: rgba(0,158,224,.6); }
+.case h3 { font: 600 1.25rem/1.25 var(--body); margin: 0; text-wrap: balance; }
+.case p { margin: 0; color: var(--mute); font-size: 0.93rem; }
+.case ul { list-style: none; margin: 2px 0 0; padding: 10px 0 0; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.case li { font-family: var(--mono); font-size: 0.72rem; display: flex; gap: 8px; }
+.case li::before { content: "•"; color: var(--sky-light); }
+
+/* ---------- 7 insights ---------- */
+.insights { padding-block: 120px; }
+.ins-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 30px; }
+.ins { position: relative; border-radius: 22px; overflow: hidden; min-height: 460px; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; isolation: isolate; border: 1px solid var(--line); transition: transform .2s ease-out; }
+.ins img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.ins:hover img { transform: scale(1.07); }
+.ins::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(5,11,45,.96) 10%, rgba(5,11,45,.35) 70%, rgba(5,11,45,.15)); }
+.ins .tags { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); }
+.ins h3 { font-family: var(--display); font-weight: 900; font-size: 2rem; line-height: .95; text-transform: uppercase; margin: 8px 0; }
+.ins p { margin: 0 0 14px; color: rgba(245,243,240,.82); font-size: 0.93rem; }
+.reads { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.read { position: relative; overflow: hidden; text-align: left; cursor: pointer; color: var(--cream); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: center; transition: border-color .25s; }
+.read:hover { border-color: var(--sky-light); }
+.read img { width: 120px; height: 120px; object-fit: cover; border-radius: 12px; }
+.read h4 { margin: 6px 0; font: 600 1.12rem/1.3 var(--body); }
+.read p { margin: 0; color: var(--mute); font-size: 0.88rem; }
+
+/* ---------- 8 papers ---------- */
+.papers-sec { padding-block: 120px; }
+.tiers { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+.tiers span { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.14em; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--mute); }
+.tiers span:nth-child(1) { border-color: var(--mint); color: var(--mint); }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: end; margin-bottom: 36px; }
+.papers { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.papers li { display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.2fr); gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; transition: background .25s, padding .35s; }
+.papers li:hover { background: linear-gradient(90deg, rgba(0,158,224,.1), transparent); padding-left: 10px; }
+.papers li.match { background: linear-gradient(90deg, rgba(31,237,147,.1), transparent); }
+.papers li.match .n { color: var(--mint); }
+.papers li.match .n::after { content: " ● MATCH"; font-size: .58rem; }
+.papers .n { font-family: var(--mono); font-size: 0.72rem; color: var(--sky-light); }
+.papers b { font-weight: 600; font-size: 1.05rem; }
+.papers p { margin: 0; color: var(--mute); font-size: 0.92rem; }
+
+/* ---------- 9 CTA ---------- */
+.cta { position: relative; height: 110svh; padding: 0 !important; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; isolation: isolate; }
+.cta-bg { position: absolute; inset: -10% 0; z-index: -2; }
+.cta-bg img { width: 100%; height: 100%; object-fit: cover; }
+.cta::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(5,11,45,.55), rgba(5,11,45,.92)); }
+.cta-in { padding: 0 var(--gutter); display: grid; justify-items: center; gap: 14px; }
+.cta h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(3.4rem, 11vw, 11rem); line-height: .82; margin: 0; }
+.cta h2 span { display: block; }
+.cta h2 span:last-child { color: transparent; -webkit-text-stroke: 2px var(--mint); }
+.cta p { margin: 6px 0 14px; font-size: 1.15rem; max-width: 34rem; }
+.cta .actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+
+/* ---------- 10 workshop ---------- */
+.workshop { padding-block: 130px; }
+.ws-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.ws-strip span { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; padding: 8px 12px; border-radius: 999px; background: var(--chip); border: 1px solid var(--line); }
+.ws-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 18px; margin-top: 40px; align-items: start; }
+.attached { display: none; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(31,237,147,.5); background: rgba(31,237,147,.08); font-size: .9rem; }
+.attached.on { display: block; }
+.form { display: grid; gap: 22px; }
+.form fieldset { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.form legend { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; color: var(--mint); margin-bottom: 10px; grid-column: 1 / -1; padding: 0; }
+.field { display: grid; gap: 6px; font-size: 0.82rem; color: var(--mute); }
+.field.full { grid-column: 1 / -1; }
+.field input, .field select, .field textarea { font: 400 0.98rem var(--body); color: var(--cream); background: var(--box); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; width: 100%; }
+.field textarea { min-height: 96px; resize: vertical; }
+.field select option { background: var(--elevated); }
+.choices { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice span { display: inline-block; padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line); font-size: 0.88rem; cursor: pointer; transition: all .2s; }
+.choice input:checked + span { background: rgba(31, 237, 147, 0.16); border-color: var(--mint); }
+.choice input:focus-visible + span { outline: 2px solid var(--mint); outline-offset: 2px; }
+.sub-label { grid-column: 1 / -1; font-size: 0.82rem; color: var(--mute); margin: 4px 0 -4px; }
+.consent { display: flex; gap: 10px; align-items: flex-start; font-size: 0.88rem; color: var(--mute); grid-column: 1 / -1; }
+.consent input { margin-top: 4px; accent-color: var(--mint); }
+.form-msg { margin: 0; min-height: 1.4em; font-size: 0.92rem; }
+.ws-aside { padding: 0; overflow: hidden; }
+.ws-aside > img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.ws-aside .in { padding: clamp(20px, 2.6vw, 30px); }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.steps li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 14px; }
+.steps .n { font-family: var(--display); font-weight: 900; font-size: 2rem; color: var(--mint); line-height: 1; }
+.steps b { display: block; font-size: 1.05rem; margin-bottom: 2px; }
+.steps p { margin: 0; color: var(--mute); font-size: 0.9rem; }
+
+footer { position: relative; background: var(--surface); border-top: 1px solid var(--line); padding: 56px var(--gutter) calc(28px + env(safe-area-inset-bottom, 0px)); overflow: hidden; }
+.foot-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(4, minmax(0, 1fr)); gap: 28px; }
+.foot-grid h5 { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; color: var(--mint); margin: 0 0 12px; font-weight: 500; }
+.foot-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.88rem; color: var(--mute); }
+.foot-grid .tagline { font-family: var(--display); font-weight: 800; font-size: 1.6rem; text-transform: uppercase; line-height: 1; margin: 16px 0 0; max-width: 18rem; }
+.foot-big { margin-top: 50px; display: flex; justify-content: center; opacity: .08; }
+.foot-big img { width: min(100%, 1100px); height: auto; }
+.foot-base { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mute); }
+
+/* reader drawer */
+.scrim { position: fixed; inset: 0; z-index: 40; background: rgba(2, 5, 22, 0.6); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 41; width: min(760px, 100%); background: var(--elevated); border-left: 1px solid var(--line); overflow-y: auto; overscroll-behavior: contain; padding: calc(env(safe-area-inset-top, 0px) + 22px) clamp(18px, 4vw, 48px) calc(env(safe-area-inset-bottom, 0px) + 48px); animation: slideIn .5s cubic-bezier(.2,.8,.2,1); }
+@keyframes slideIn { from { transform: translateX(60px); opacity: 0; } }
+.drawer-bar { position: sticky; top: -22px; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 10px 0; margin: -10px 0 10px; background: var(--elevated); }
+.close { background: rgba(245, 243, 240, 0.08); border: 1px solid var(--line); color: var(--cream); border-radius: 999px; padding: 8px 14px; cursor: pointer; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; }
+.drawer h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 4.6vw, 3.4rem); line-height: 0.92; margin: 0.3em 0 0.4em; text-wrap: balance; }
+.drawer h3 { font-family: var(--display); font-weight: 800; font-size: 1.7rem; text-transform: uppercase; margin: 36px 0 10px; line-height: 1; }
+.drawer p { color: rgba(245, 243, 240, 0.82); max-width: 62ch; }
+.drawer .standfirst { font-size: 1.12rem; color: var(--cream); }
+.drawer .hero-img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; object-position: 50% 30%; border-radius: 16px; margin: 6px 0 4px; display: block; }
+.dstats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 20px 0; }
+.dstats div { padding: 14px; border-radius: 14px; background: var(--box); border: 1px solid var(--line); }
+.dstats b { display: block; font-family: var(--display); font-weight: 900; font-size: 2.1rem; line-height: 1; color: var(--mint); }
+.dstats span { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--mute); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; padding: 0; list-style: none; }
+.chips li { font-size: 0.8rem; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line); color: var(--mute); }
+.toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+.toc a { font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 6px 10px; border-radius: 8px; background: var(--box); color: var(--sky-light); }
+.quote { margin: 28px 0; padding: 24px 26px; border-radius: 16px; background: linear-gradient(140deg, var(--navy), rgba(0, 112, 192, 0.6)); }
+.quote p { font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1.15; color: var(--cream); margin: 0 0 12px; }
+.quote cite { font-style: normal; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--mint); }
+.pull { border-left: 3px solid var(--mint); padding: 4px 0 4px 18px; margin: 22px 0; font-size: 1.15rem; color: var(--cream); }
+.phases { display: grid; grid-template-columns: 6fr 6fr 10fr; gap: 6px; margin: 16px 0; }
+.phases div { padding: 12px; border-radius: 10px; background: rgba(0, 112, 192, 0.3); border: 1px solid rgba(0, 158, 224, 0.4); }
+.phases b { display: block; font-size: 0.92rem; }
+.phases span { font-family: var(--mono); font-size: 0.66rem; color: var(--mute); }
+.dlist { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 8px; }
+.dlist li { padding: 14px 16px; border-radius: 12px; background: var(--box); border: 1px solid var(--line); }
+.dlist small { display: block; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; color: var(--sky-light); margin-bottom: 4px; }
+.dlist b { display: block; margin-bottom: 2px; }
+.dlist span { color: var(--mute); font-size: 0.9rem; }
+.dlist button { all: unset; cursor: pointer; display: block; }
+.dlist button:hover b { color: var(--mint); }
+.count { font-family: var(--display); font-weight: 900; font-size: 2rem; color: var(--mint); float: right; line-height: 1; margin-left: 12px; }
+.author { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.9rem; }
+.author b { color: var(--cream); }
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); z-index: 60; background: var(--cream); color: var(--surface); padding: 12px 18px; border-radius: 999px; font-size: 0.9rem; max-width: calc(100% - 32px); text-align: center; }
+
+@media (max-width: 1060px) {
+  .menu > button, .menu > a { padding: 8px; font-size: 0.82rem; }
+}
+@media (max-width: 900px) {
+  html.light .case-media::after { background: linear-gradient(0deg, #F5F3F0 0%, rgba(245,243,240,0) 50%); }
+  .menu { display: none; }
+  .menu.open { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; padding: 12px var(--gutter) 18px; background: rgba(0, 8, 80, 0.97); border-bottom: 1px solid var(--line); }
+  .burger { display: inline-block; }
+  .nav .btn { display: none; }
+  .mega { position: static; grid-template-columns: minmax(0, 1fr); margin-top: 6px; }
+  .mega-list { grid-template-columns: minmax(0, 1fr); }
+  .split, .ws-grid, .reads, .bgrid, .builder-head, .zoom-body, .more-cases { grid-template-columns: minmax(0, 1fr); }
+  .ins-grid { grid-template-columns: minmax(0, 1fr); }
+  .sheet { position: relative; top: 0; }
+  .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .foot-grid > div:first-child { grid-column: 1 / -1; }
+  .case-pin { grid-template-columns: minmax(0, 1fr); height: auto; }
+  .case-media { height: 60svh; }
+  .case-media::after { background: linear-gradient(0deg, var(--surface) 0%, rgba(5,11,45,0) 50%); }
+  .case-copy { padding: 10px var(--gutter) 40px; }
+  /* rail becomes a vertical stack */
+  .rail-in { height: auto; display: block; padding-block: 100px; }
+  .rail-track { flex-direction: column; transform: none !important; }
+  .rail-intro { flex: none; padding: 0 0 10px; }
+  .seg-card { flex: none; width: 100%; height: 72svh; }
+  .cap-row { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .cap-row .n { display: none; }
+  .cap-row .thumb { display: block; width: 100%; height: 200px; object-fit: cover; border-radius: 14px; }
+  .hover-img { display: none; }
+  .scroll-cue { display: none; }
+}
+@media (max-width: 760px) {
+  html.light .hero-media::after { background: linear-gradient(0deg, #F5F3F0 30%, rgba(245,243,240,.9) 62%, rgba(245,243,240,.25) 88%); }
+  html.light .case-media::after { background: linear-gradient(0deg, #F5F3F0 0%, rgba(245,243,240,0) 50%); }
+  .theme-btn span { display: none; }
+  .announce .util, .dots { display: none; }
+  .hero { height: auto; min-height: 100svh; }
+  .hero-in { min-height: 100svh; padding-top: 130px; }
+  .h-display { font-size: clamp(2.1rem, 9vw, 3rem); }
+  .announce { font-size: 0.62rem; }
+  .hero-media::after { background: linear-gradient(0deg, rgba(5,11,45,.98) 10%, rgba(5,11,45,.6) 50%, rgba(5,11,45,.2) 80%), linear-gradient(180deg, rgba(5,11,45,.7) 0%, rgba(5,11,45,0) 20%); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); margin-top: 12px; }
+  .zoom-head { top: 13vh; }
+  .form fieldset, .cstats, .dstats, .phases, .timeline { grid-template-columns: minmax(0, 1fr); }
+  .papers li { grid-template-columns: 40px minmax(0, 1fr); }
+  .papers p { grid-column: 2; }
+  .read { grid-template-columns: 80px minmax(0, 1fr); }
+  .read img { width: 80px; height: 80px; }
+  .cta { height: 90svh; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .zoom-img { clip-path: none; }
+  .zoom-head h2 .w { opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<header class="top" id="topbar">
+  <div class="announce">
+    <span><b>●</b> Ejada named Google Cloud Country Partner of the Year 2025 — Saudi Arabia.</span>
+    <span class="util"><a href="#cases">Proof</a><a href="#workshop">Visit HQ</a></span>
+  </div>
+  <div class="nav">
+    <a class="logo" href="#top" aria-label="Ejada home"><img src="img/ejada-logo-white.png" alt="Ejada"></a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <button type="button" id="sectorsBtn" aria-expanded="false" aria-controls="mega">Sectors ▾</button>
+      <button type="button" data-open="erp">Capabilities</button>
+      <a href="#builder">Solutions</a>
+      <button type="button" data-open="caselib">Case Studies</button>
+      <a href="#insights">Insights</a>
+      <a href="#foot">About</a>
+      <button type="button" class="lang" id="langBtn">EN / AR</button>
+    </nav>
+    <button class="theme-btn" id="themeBtn" type="button" aria-pressed="false" aria-label="Switch between dark and light edition"><i aria-hidden="true"></i><span>Light</span></button>
+    <a class="btn btn-primary" href="#workshop" data-magnetic>Engage with us →</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+    <div class="mega" id="mega" hidden>
+      <div class="mega-list">
+        <div class="eyebrow">Where we operate</div>
+        <a class="mega-item current" href="#top"><b>Financial Services</b><span>Sovereign-grade banking infrastructure.</span></a>
+        <a class="mega-item" href="#top"><b>Healthcare</b><span>Providers, payers, digital health.</span></a>
+        <a class="mega-item" href="#top"><b>Retail &amp; Consumer</b><span>Loyalty, payments, modern trade.</span></a>
+        <a class="mega-item" href="#top"><b>Transport &amp; Logistics</b><span>Rail, ports, airports, mobility.</span></a>
+        <a class="mega-item" href="#top"><b>Sports · Tourism · Entertainment</b><span>Vision 2030 mega-events &amp; heritage.</span></a>
+        <a class="mega-item" href="#top"><b>Government</b><span>Ministries, authorities, public programs.</span></a>
+        <a class="mega-item" href="#top"><b>Energy &amp; Utilities</b><span>Oil &amp; gas, utilities, water, renewables.</span></a>
+        <a class="mega-item" href="#top"><b>Real Estate</b><span>Developers, smart districts.</span></a>
+        <a class="mega-item" href="#top"><b>Mega Projects</b><span>Owner-side advisory and PMO.</span></a>
+        <a class="mega-item" href="#top"><b>Telecom &amp; Media</b><span>Operators, networks, content.</span></a>
+      </div>
+      <div class="mega-side">
+        <img src="img/kafd-dusk.jpg" alt="">
+        <div><div class="eyebrow" style="color:var(--cream)">All sectors</div><p>Ten sectors. One accountable programme. Partner-track leadership in each.</p></div>
+        <a class="link" style="color:var(--mint)" href="#top">All sectors →</a>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="dots" id="dots" aria-label="Page sections"></nav>
+
+<main>
+  <!-- 1 Hero -->
+  <section class="hero" id="top" data-scene data-label="Financial Services">
+    <div class="hero-media" id="heroMedia">
+      <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg" src="img/hero.mp4"></video>
+    </div>
+    <div class="hero-in" id="heroIn">
+      <div>
+        <div class="eyebrow" data-intro>Sector 03 / 10 · Financial Services</div>
+        <h1 aria-label="The engine room of the Kingdom's banking spine.">
+          <span class="line-mask"><span data-line>The engine room</span></span>
+          <span class="line-mask"><span data-line>of the Kingdom's</span></span>
+          <span class="line-mask"><span data-line><em>banking spine.</em></span></span>
+        </h1>
+        <p class="sub" data-intro>Transforming financial institutions into resilient, intelligent, growth-ready enterprises.</p>
+        <div class="hero-actions" data-intro>
+          <a class="btn btn-primary" href="#builder" data-magnetic>Build your case →</a>
+          <a class="btn btn-ghost" href="#workshop" data-magnetic>Engage with us →</a>
+        </div>
+      </div>
+      <div class="stats" data-intro>
+        <div class="stat"><b data-count="87">87</b><span>BANKING ENGAGEMENTS</span></div>
+        <div class="stat"><b data-count="700" data-suffix="K+">700K+</b><span>DAILY SAMA REQUESTS</span></div>
+        <div class="stat"><b>ZERO</b><span>MINUTES OF DOWNTIME</span></div>
+        <div class="stat"><b>SAMA</b><span>-INTEGRATED</span></div>
+      </div>
+    </div>
+    <div class="scroll-cue" aria-hidden="true">SCROLL <i></i></div>
+  </section>
+
+  <!-- 2 Vision 2030 context: pinned zoom -->
+  <section class="zoom" id="context" data-scene data-label="Vision 2030 context">
+    <div class="zoom-img" id="zoomImg"><img src="img/heritage.jpg" alt="Riyadh old and new: Masmak-style heritage architecture in front of the Kingdom Centre skyline"></div>
+    <div class="zoom-head">
+      <div class="eyebrow">Vision 2030 context</div>
+      <h2 id="zoomTitle">Modernizing the Kingdom's banking spine.</h2>
+    </div>
+    <div class="zoom-body" id="zoomBody">
+      <p class="tagline">Strategy, technology, and operations aligned.</p>
+      <p>The Kingdom's financial services sector is modernizing under Vision 2030. SAMA regulatory mandates drive simultaneous modernization of core banking, compliance, and digital channels. The ecosystem is scaling fintech innovation. ejada orchestrates this complexity as a single program — strategy, technology, and operations aligned.</p>
+    </div>
+  </section>
+
+  <!-- 3 Sub-segments: horizontal rail -->
+  <section class="rail" id="segments" data-scene data-label="Sub-segments">
+    <div class="rail-in" id="railIn">
+      <div class="rail-track" id="railTrack">
+        <div class="rail-intro">
+          <div class="eyebrow">Vision 2030 context</div>
+          <h2 class="h-display">Retail. Corporate. Treasury. Risk.</h2>
+          <p class="body-copy">Pick the one you lead. It becomes the starting point of your case below.</p>
+          <div class="count"><span id="railNum">01 / 04</span><i id="railBar"></i></div>
+        </div>
+        <article class="seg-card"><img src="img/seg-retail.jpg" alt=""><span class="big">01</span><span class="eyebrow">Sub-segment</span><h3>Retail Banking</h3><p>Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.</p><button class="pick" type="button" data-pickseg="retail" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-corporate.jpg" alt=""><span class="big">02</span><span class="eyebrow">Sub-segment</span><h3>Corporate Banking</h3><p>Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.</p><button class="pick" type="button" data-pickseg="corp" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-treasury.jpg" alt=""><span class="big">03</span><span class="eyebrow">Sub-segment</span><h3>Treasury &amp; Capital Markets</h3><p>Core treasury platforms, capital-markets connectivity, and liquidity management.</p><button class="pick" type="button" data-pickseg="treasury" data-cursor="ADD">Make this my focus +</button></article>
+        <article class="seg-card"><img src="img/seg-risk.jpg" alt=""><span class="big">04</span><span class="eyebrow">Sub-segment</span><h3>Compliance &amp; Risk</h3><p>SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.</p><button class="pick" type="button" data-pickseg="risk" data-cursor="ADD">Make this my focus +</button></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- marquee -->
+  <section class="marquee" aria-label="Financial services in numbers">
+    <div class="marquee-track" id="marquee">
+      <span>87 Banking engagements <i>●</i></span><span>700K+ Daily SAMA requests <i>●</i></span><span>Zero minutes of downtime <i>●</i></span><span>SAMA-integrated <i>●</i></span>
+      <span aria-hidden="true">87 Banking engagements <i>●</i></span><span aria-hidden="true">700K+ Daily SAMA requests <i>●</i></span><span aria-hidden="true">Zero minutes of downtime <i>●</i></span><span aria-hidden="true">SAMA-integrated <i>●</i></span>
+    </div>
+  </section>
+
+  <!-- 4 Capabilities -->
+  <section class="caps" id="capabilities" data-scene data-label="Capabilities applied">
+    <div class="eyebrow" data-reveal>Capabilities applied</div>
+    <h2 class="h-display" data-reveal>The capabilities behind the sector.</h2>
+    <ul class="cap-list" id="capList">
+      <li class="cap-row" tabindex="0" role="button" data-img="0" data-open="erp" data-cursor="OPEN"><img class="thumb" src="img/cap-erp.jpg" alt=""><span class="n">01</span><h3>Enterprise Apps &amp; ERP</h3><p>SAP, Oracle, core banking platforms.</p><span class="act">EXPLORE →</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="1" data-addcap="staff" data-cursor="ADD"><img class="thumb" src="img/cap-staff.jpg" alt=""><span class="n">02</span><h3>Staffing Solutions</h3><p>Sector-fluent banking specialists on demand.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="2" data-addcap="data" data-cursor="ADD"><img class="thumb" src="img/cap-data.jpg" alt=""><span class="n">03</span><h3>Data &amp; AI</h3><p>Risk analytics, fraud detection, customer intelligence.</p><span class="act">ADD TO CASE +</span></li>
+      <li class="cap-row" tabindex="0" role="button" data-img="3" data-addcap="cloud" data-cursor="ADD"><img class="thumb" src="img/cap-cloud.jpg" alt=""><span class="n">04</span><h3>Cloud &amp; Infra</h3><p>Sovereign cloud, hybrid models, disaster recovery.</p><span class="act">ADD TO CASE +</span></li>
+    </ul>
+    <div class="hover-img" id="hoverImg" aria-hidden="true"><img src="img/cap-erp.jpg" alt=""><img src="img/cap-staff.jpg" alt=""><img src="img/cap-data.jpg" alt=""><img src="img/cap-cloud.jpg" alt=""></div>
+  </section>
+
+  <!-- 5 Builder -->
+  <section class="builder" id="builder" data-scene data-label="Build your case">
+    <div class="builder-head">
+      <div>
+        <div class="eyebrow" data-reveal>Build your case</div>
+        <h2 class="h-display" data-reveal>Shape your transformation. <span style="color:var(--sky-light)">We bring the proof.</span></h2>
+      </div>
+      <p class="body-copy" data-reveal>Pick where you operate, what you need to achieve and the services you want in scope. Your case builds live on the right, matched to Ejada's proof, and goes straight into your workshop request.</p>
+    </div>
+    <div class="bgrid">
+      <div id="bsteps"></div>
+      <aside class="sheet" aria-live="polite">
+        <div class="sheet-top">
+          <img src="img/builder.jpg" alt="">
+          <div class="t"><span class="eyebrow" id="sheetFor">Your transformation case</span><h3 id="sheetTitle">Financial services transformation</h3></div>
+        </div>
+        <div class="sheet-body" id="sheet"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 6 Case study, pinned -->
+  <section class="case-pin" id="cases" data-scene data-label="Sector case studies">
+    <div class="case-media"><img id="caseImg" src="img/metro.jpg" alt="Riyadh Metro train arriving at the KAFD station at dusk"><span class="tag tag-float">Banking</span></div>
+    <div class="case-copy">
+      <div class="eyebrow">Sector case studies · Proof, at national scale.</div>
+      <h2>Core modernization without downtime</h2>
+      <p>How a leading Saudi bank migrated its core banking system while serving 2M+ daily transactions with zero unplanned outages.</p>
+      <div class="cstats">
+        <div><b data-count="700000" data-suffix="+">700,000+</b><span>DAILY SAMA REQUESTS</span></div>
+        <div><b data-count="11">11</b><span>VENDORS ORCHESTRATED</span></div>
+        <div><b>0</b><span>MINUTES DOWNTIME</span></div>
+      </div>
+      <div class="timeline" id="timeline">
+        <div><b>Discover</b><span>6 months</span></div>
+        <div><b>Architect</b><span>6 months</span></div>
+        <div><b>Orchestrate/Validate</b><span>10 months</span></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-primary" type="button" data-open="corecase" data-magnetic>READ THE CASE →</button><button class="btn btn-ghost" type="button" data-open="caselib">All case studies →</button></div>
+    </div>
+  </section>
+  <section class="more-cases" aria-label="More case studies">
+    <article class="panel case" data-tilt>
+      <span class="tag">Banking</span>
+      <h3>Banking product launch</h3>
+      <p>Orchestrated the launch of a new financing product suite across a major Saudi bank in 18 months.</p>
+      <ul><li>14 new products</li><li>fully audit-trailed</li><li>120+ customers on day-one</li></ul>
+      <button class="link" type="button" data-toast="The full case page for this card is not in the current site content.">READ THE CASE →</button>
+    </article>
+    <article class="panel case" data-tilt>
+      <span class="tag">Banking</span>
+      <h3>Regulatory reporting automation</h3>
+      <p>Built SAMA-integrated regulatory reporting pipelines for a consortium of regional banks, cutting manual effort by 87%.</p>
+      <ul><li>15 financial institutions</li><li>98% accuracy</li><li>8-minute monthly close</li></ul>
+      <button class="link" type="button" data-toast="The full case page for this card is not in the current site content.">READ THE CASE →</button>
+    </article>
+  </section>
+
+  <!-- 7 Insights -->
+  <section class="insights" id="insights" data-scene data-label="Sector insights">
+    <div class="eyebrow" data-reveal>Sector insights</div>
+    <h2 class="h-display" data-reveal>Themes shaping Saudi banking.</h2>
+    <div class="ins-grid">
+      <article class="ins" data-tilt data-cursor="READ" data-open="playbook" tabindex="0" role="button"><img src="img/ins-sama.jpg" alt=""><span class="tags">Banking · Regulation</span><h3>SAMA modernization mandate</h3><p>The regulatory roadmap driving simultaneous transformation across all major Saudi banks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-regtech.jpg" alt=""><span class="tags">RegTech · Compliance</span><h3>Scaling regulatory technology</h3><p>How Saudi banking platforms are keeping pace with expanding regulatory reporting.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+      <article class="ins" data-tilt data-cursor="READ" data-toast="This article is not in the current site content." tabindex="0" role="button"><img src="img/ins-mobile.jpg" alt=""><span class="tags">Digital · Customer Experience</span><h3>The mobile-first banking shift</h3><p>Why digital banking adoption rates in the Kingdom are outpacing global benchmarks.</p><span class="link" style="color:var(--mint)">READ MORE →</span></article>
+    </div>
+    <div class="reads">
+      <button type="button" class="panel read" data-open="playbook" data-cursor="READ"><img src="img/kafd-dusk.jpg" alt=""><span><span class="eyebrow">Market insights · Banking · 8 min read</span><h4>Orchestrating Saudi Banking Modernization: A reference playbook.</h4><p>The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels.</p></span></button>
+      <button type="button" class="panel read" data-open="orchestrator" data-cursor="READ"><img src="img/network.jpg" alt=""><span><span class="eyebrow">Executive commentary · 6 min read</span><h4>From integrator to strategic partner: why the model has to change.</h4><p>The post-integration economy is here.</p></span></button>
+    </div>
+  </section>
+
+  <!-- 8 Whitepapers -->
+  <section class="papers-sec" id="papers" data-scene data-label="Whitepapers">
+    <div class="split">
+      <div><div class="eyebrow" data-reveal>Whitepapers · Considered intelligence</div><h2 class="h-display" data-reveal>Long-form analysis. Gated by intent.</h2></div>
+      <div>
+        <p class="body-copy" data-reveal>Reference architectures, compliance frameworks, executive playbooks. Open downloads, name-email gates, qualified-lead intent, investor-only — organized by the seriousness of the conversation.</p>
+        <div class="tiers"><span>OPEN PUBLIC</span><span>NAME &amp; EMAIL LIGHT GATE</span><span>QUALIFIED INTENT</span><span>INVESTOR -ONLY</span></div>
+      </div>
+    </div>
+    <div class="split" style="margin-bottom:14px;align-items:baseline">
+      <h3 class="h-display" style="font-size:clamp(1.8rem,3vw,2.6rem);margin:0">Deep dives into transformation playbooks.</h3>
+      <p class="body-copy">Architecture patterns, compliance mappings, and lessons from the Kingdom's largest modernization programs.</p>
+    </div>
+    <ul class="papers" id="papersList">
+      <li data-p="playbook"><span class="n">01</span><b>The Strategic Partner's Playbook for Saudi Banking Modernization (2026)</b><p>Phase-by-phase roadmap for core banking migration, SAMA compliance integration, and vendor orchestration at scale. 64 pages.</p></li>
+      <li data-p="cloud"><span class="n">02</span><b>Sovereign Cloud Reference Architecture for KSA Government</b><p>Multi-tenancy patterns, data residency, and interoperability standards for government cloud migration. Built on 23 live deployments.</p></li>
+      <li data-p="product"><span class="n">03</span><b>Core Banking Product Configuration: A Reference Implementation</b><p>System design, product configuration, and reporting automation for modern core banking platforms.</p></li>
+      <li data-p="zerodt"><span class="n">04</span><b>Zero-Downtime Core Banking Migration Framework</b><p>Dual-run strategies, cutover choreography, and SAMA request routing for live banking transformation without service interruption.</p></li>
+      <li data-p="ai"><span class="n">05</span><b>Decision Intelligence in Regulated Environments: Building Governed AI</b><p>Model governance, explainability, and compliance for decision automation in banking, government, and healthcare sectors.</p></li>
+      <li data-p="retail"><span class="n">06</span><b>Omnichannel Retail Orchestration: Technology Operating Model</b><p>Unified commerce architecture for physical, digital, and marketplace channels. Based on 50+ KSA retail modernizations.</p></li>
+      <li data-p="gov"><span class="n">07</span><b>National Digital Services Platform: Citizen-Centric Service Design at Scale</b><p>Multi-ministry service orchestration, single sign-on, and interoperability standards for government digital transformation.</p></li>
+      <li data-p="gov2"><span class="n">08</span><b>Orchestration Governance: Structures, Roles, and Operating Rhythms</b><p>Board-level governance frameworks for enterprise transformation programs. Proven across 500+ projects.</p></li>
+    </ul>
+    <div class="split" style="margin:30px 0 0;align-items:center">
+      <div><div class="eyebrow">Research library</div><h3 class="h-display" style="font-size:clamp(1.8rem,3vw,2.6rem);margin:.2em 0 .2em">Build on proven frameworks.</h3><p class="body-copy">Access our full research library. Download whitepapers, reference architectures, and playbooks.</p></div>
+      <div style="justify-self:end"><button class="btn btn-ghost" type="button" data-magnetic data-toast="The research library is not part of this prototype.">Access Library →</button></div>
+    </div>
+  </section>
+
+  <!-- 9 CTA -->
+  <section class="cta" id="next" data-scene data-label="Next step">
+    <div class="cta-bg" id="ctaBg"><img src="img/cta.jpg" alt="Riyadh skyline at night with the Kingdom Centre and Al Faisaliah towers"></div>
+    <div class="cta-in">
+      <div class="eyebrow">Next step</div>
+      <h2><span>Ready to</span><span>modernize?</span></h2>
+      <p>Let's map your financial services transformation and identify your first move.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#workshop" data-magnetic>Engage with us →</a>
+        <button class="btn btn-ghost" type="button" data-open="erp" data-magnetic>Explore Enterprise Apps &amp; ERP</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 Workshop -->
+  <section class="workshop" id="workshop" data-scene data-label="Request a workshop">
+    <div class="eyebrow" data-reveal>Engage · Discovery workshop</div>
+    <h2 class="h-display" data-reveal>Ninety minutes. One sequenced first move.</h2>
+    <p class="body-copy" data-reveal>A discovery session with a partner-track architect. We map your transformation, frame it against our methodology, and leave you with a costed first move within five working days.</p>
+    <div class="ws-strip"><span>90 MINUTES</span><span>5 DAYS TO COSTED PLAN</span><span>PARTNER-TRACK ARCHITECT</span><span>BILINGUAL EN · AR</span></div>
+    <div class="ws-grid">
+      <form class="panel form" id="wsForm" novalidate>
+        <div><div class="eyebrow dim">Workshop request</div><p style="margin:.4em 0 0">Tell us about your transformation ambition. We'll tailor a 90-minute Discover session with a sector specialist.</p></div>
+        <div class="attached" id="attached"></div>
+        <fieldset>
+          <legend>CONTEXT</legend>
+          <label class="field" for="w-name">Full name<input id="w-name" placeholder="Your name" autocomplete="name"></label>
+          <label class="field" for="w-email">Work email<input id="w-email" type="email" placeholder="name@company.com" autocomplete="email"></label>
+          <label class="field" for="w-co">Company<input id="w-co" placeholder="Organization" autocomplete="organization"></label>
+          <label class="field" for="w-role">Role<input id="w-role" placeholder="Your title" autocomplete="organization-title"></label>
+          <label class="field full" for="w-sector">Sector
+            <select id="w-sector"><option value="">Select your sector</option><option selected>Financial Services</option><option>Healthcare</option><option>Retail &amp; Consumer</option><option>Transport &amp; Logistics</option><option>Sports · Tourism · Entertainment</option><option>Government</option><option>Energy &amp; Utilities</option><option>Real Estate</option><option>Mega Projects</option><option>Telecom &amp; Media</option></select>
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>INTENT</legend>
+          <span class="sub-label">Capabilities of interest</span>
+          <div class="choices" id="capChoices">
+            <label class="choice"><input type="checkbox" id="c-erp" checked><span>Enterprise Apps &amp; ERP</span></label>
+            <label class="choice"><input type="checkbox" id="c-data"><span>Data &amp; AI</span></label>
+            <label class="choice"><input type="checkbox" id="c-cloud"><span>Cloud &amp; Infrastructure</span></label>
+            <label class="choice"><input type="checkbox" id="c-cyber"><span>Cybersecurity</span></label>
+            <label class="choice"><input type="checkbox" id="c-ux"><span>Digital Transformation &amp; UX</span></label>
+            <label class="choice"><input type="checkbox" id="c-ms"><span>Managed Services</span></label>
+            <label class="choice"><input type="checkbox" id="c-staff"><span>Staffing Solutions</span></label>
+          </div>
+          <label class="field full" for="w-outcome">Specific outcome you're seeking<textarea id="w-outcome" placeholder="What's the transformation you're planning?"></textarea></label>
+          <span class="sub-label">Preferred format</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="fmt" id="f1" checked><span>In-person, Riyadh HQ</span></label>
+            <label class="choice"><input type="radio" name="fmt" id="f2"><span>Virtual</span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>TIMING &amp; CONFIRM</legend>
+          <span class="sub-label">Preferred timeframe</span>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="tf" id="tf-0" checked><span>Next 2 weeks</span></label>
+            <label class="choice"><input type="radio" name="tf" id="tf-1"><span>Next month</span></label>
+            <label class="choice"><input type="radio" name="tf" id="tf-2"><span>Next quarter</span></label>
+            <label class="choice"><input type="radio" name="tf" id="tf-3"><span>Unsure</span></label>
+          </div>
+          <label class="field full" for="w-notes">Additional notes<textarea id="w-notes" placeholder="Anything else we should know?"></textarea></label>
+          <label class="consent" for="w-consent"><input type="checkbox" id="w-consent"> I consent to PDPL data processing for workshop scheduling</label>
+        </fieldset>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+          <button class="btn btn-primary" type="submit" data-magnetic>Engage with us →</button>
+          <p class="form-msg" id="wsMsg" role="status"></p>
+        </div>
+      </form>
+      <aside class="panel ws-aside">
+        <img src="img/workshop.jpg" alt="">
+        <div class="in">
+          <div class="eyebrow">What happens next</div>
+          <h3 class="h-display" style="font-size:2.2rem;margin:.25em 0 .6em">Three simple steps.</h3>
+          <ol class="steps">
+            <li><span class="n">01</span><div><b>We confirm</b><p>Confirmation within 24 hours with your sector specialist's background and the 90-minute agenda.</p></div></li>
+            <li><span class="n">02</span><div><b>We tailor</b><p>A pre-work questionnaire on your current state, constraints, and ambition — so we architect a personalized session.</p></div></li>
+            <li><span class="n">03</span><div><b>We orchestrate</b><p>Ninety minutes mapping opportunity, identifying quick wins, and sequencing your transformation. Leave with a first move.</p></div></li>
+          </ol>
+          <div style="margin-top:26px;padding-top:20px;border-top:1px solid var(--line)">
+            <div class="eyebrow">Ready to modernize?</div>
+            <p style="font-family:var(--display);font-weight:800;font-size:1.6rem;line-height:1;text-transform:uppercase;margin:.3em 0 .3em">Let's map your banking transformation.</p>
+            <p style="color:var(--mute);margin:0;font-size:.92rem">Ninety minutes with a partner-track architect to design your orchestration approach.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+</main>
+
+<footer id="foot">
+  <div class="foot-grid">
+    <div><img src="img/ejada-logo-white.png" alt="Ejada" style="height:40px;width:auto"><p class="tagline">The Kingdom's Strategic Partner for Digital Transformation.</p></div>
+    <div><h5>CAPABILITIES</h5><ul><li>Enterprise Apps &amp; ERP</li><li>Data &amp; AI</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li><li>Digital Transformation &amp; UX</li><li>Managed Services</li><li>Staffing Solutions</li></ul></div>
+    <div><h5>SECTORS</h5><ul><li>Financial Services</li><li>Government</li><li>Healthcare</li><li>Energy &amp; Utilities</li><li>Retail &amp; Consumer</li><li>Real Estate</li><li>Transport &amp; Logistics</li><li>Mega Projects</li></ul></div>
+    <div><h5>ABOUT</h5><ul><li>Overview</li><li>Leadership</li><li>Timeline</li><li>Culture</li><li>Careers</li></ul></div>
+    <div><h5>ENGAGE</h5><ul><li>Request a Workshop</li><li>Visit HQ</li><li>Partner With Ejada</li><li>Contact</li></ul></div>
+  </div>
+  <div class="foot-big" aria-hidden="true"><img src="img/ejada-logo-white.png" alt=""></div>
+  <div class="foot-base"><span>Interactive prototype · Sector Website Profiles · Sector Marketing</span><span>Pre-launch content · imagery is placeholder · not yet validated</span></div>
+</footer>
+
+<!-- ================= reader content ================= -->
+<template id="t-corecase">
+  <div class="eyebrow">Case study · Financial Services</div>
+  <h2>How a leading Saudi bank modernized its core without a minute of downtime.</h2>
+  <img class="hero-img" src="img/metro.jpg" alt="">
+  <p class="standfirst">A major SAMA-regulated institution modernized its core banking platform while serving 700,000+ daily regulatory requests. Zero unplanned outages. 11 vendors orchestrated across 22 months.</p>
+  <ul class="chips"><li>Enterprise Apps &amp; ERP</li><li>Staffing Solutions</li><li>Cloud &amp; Infrastructure</li><li>Cybersecurity</li></ul>
+  <div class="dstats"><div><b>700,000+</b><span>DAILY SAMA REQUESTS</span></div><div><b>0</b><span>MINUTES DOWNTIME</span></div><div><b>11</b><span>VENDORS ORCHESTRATED</span></div></div>
+  <div class="toc"><a href="#d-challenge">Challenge</a><a href="#d-role">Ejada's Role</a><a href="#d-caps">Capabilities applied</a><a href="#d-approach">Orchestration Approach</a><a href="#d-outcome">Outcome</a></div>
+  <h3 id="d-challenge">Challenge</h3>
+  <p>A leading Saudi bank faced a modernization mandate: move from a legacy mainframe core to a contemporary cloud-based platform, maintain real-time SAMA compliance reporting, and scale digital channels for retail and corporate customers. The complexity: the bank could not afford a single minute of downtime. 700,000+ SAMA requests per day run 24/7 — any interruption triggers regulatory reporting failures.</p>
+  <p>The bank had engaged three separate systems integrators. Each was optimizing for their own deliverables — the core migration team, the compliance team, the digital team — with no coordinated handoff or shared accountability for the outcome. The result: 18-month timeline, high risk of cutover failure, and no clear ownership of end-state value realization.</p>
+  <h3 id="d-role">Ejada's Role</h3>
+  <p>Ejada was brought in as the single accountable orchestrator. We did not replace the three integrators — we coordinated them. Our mandate: sequence their work, ensure their outputs flowed cleanly into each other, hold the program accountable to a 22-month timeline with zero unplanned downtime, and measure value realization, not just system availability.</p>
+  <h3 id="d-caps">Capabilities applied</h3>
+  <h3 id="d-approach">Orchestration Approach</h3>
+  <div class="phases"><div><b>Discover</b><span>6 months</span></div><div><b>Architect</b><span>6 months</span></div><div><b>Orchestrate/Validate</b><span>10 months</span></div></div>
+  <p>We restructured the program into three distinct phases: Discover (6 months), Architect (6 months), and Orchestrate/Validate (10 months). Each phase had a single gate-keeper — the Ejada orchestrator — with authority to sequence vendor work and escalate blockers to the bank's executive steering committee weekly.</p>
+  <p>The breakthrough: we created a "dual-run protocol" where the old core and new platform ran in parallel for 6 weeks before cutover. Every SAMA request was routed to both systems. We validated that the new platform produced identical regulatory outputs. On cutover day, we simply switched the routing switch. One minute to validate, zero minutes of downtime.</p>
+  <h3 id="d-outcome">Outcome</h3>
+  <p>The program delivered on all metrics. The bank is now operating on a modern core, fully SAMA-compliant, with capacity to scale new products and digital channels. The outcome is not just technical — it is strategic. The bank can now launch new products in weeks, not months. Digital adoption jumped to 68% of retail customers. SAMA reporting is real-time.</p>
+  <div class="quote"><p>"Working with Ejada changed our entire program dynamic. Instead of managing three vendors in parallel, we had one accountability hand. That single hand was the difference between an 18-month risky program and a 22-month confident delivery."</p><cite>— Chief Information Officer, Leading Saudi Bank</cite></div>
+  <h3>Related case studies &amp; insights</h3>
+  <ul class="dlist">
+    <li><button type="button" data-open="govcase"><small>CASE STUDY</small><b>Digital Government Experience: 23 agencies unified</b><span>How Ejada orchestrated cloud migration and citizen-facing service consolidation across government authorities.</span></button></li>
+    <li><small>SOLUTION</small><b>Intelligent Banking Transformation</b><span>A productized engagement for core modernization, SAMA compliance, and product innovation at scale. Pilot-ready in 12 weeks.</span></li>
+    <li><small>INSIGHT</small><b>Zero-Downtime Banking Migration: The checklist</b><span>Step-by-step framework for executing a core banking cutover while maintaining 24/7 SAMA regulatory compliance.</span></li>
+  </ul>
+</template>
+
+<template id="t-playbook">
+  <div class="eyebrow">Market insights · Banking · 12 March 2026 · 8 min read</div>
+  <h2>Orchestrating Saudi Banking Modernization: A reference playbook.</h2>
+  <p class="standfirst">The Kingdom's banking sector is undergoing simultaneous transformation across core systems, compliance frameworks, and digital channels. This playbook outlines the orchestration model that enables this scale.</p>
+  <p>The Saudi banking sector's modernization is unique in scale. Unlike Western markets where transformation happens gradually across disparate institutions, the Kingdom's SAMA regulatory mandates create a synchronized, sector-wide window. Every major bank must modernize their core systems, maintain regulatory compliance in real-time, and scale digital channels. Simultaneously.</p>
+  <p>This creates a coordination problem that integration alone cannot solve. A single bank can hire a systems integrator to manage point-to-point vendor relationships. But when 10+ banks are transforming in parallel, using different core platforms (SAP, Oracle, Temenos), running against SAMA reporting standards, and sharing marketplace infrastructure, the problem becomes orchestration.</p>
+  <h3>The coordination model that works at scale</h3>
+  <p>Orchestration begins with a single accountable hand across all workstreams. Not a federation of vendors answering to different procurement leaders — but one program management discipline, one set of sequenced handoffs, one set of measurable outcomes.</p>
+  <p>In practice, this means: one partner with end-to-end visibility into strategy, architecture, and execution. We do not build everything — SAP still runs the core, Oracle still manages the data warehouse, Fortis still secures the environment. But we sequence their work, ensures their outputs feed into each other cleanly, and holds the program accountable to outcomes, not deliverables.</p>
+  <p class="pull">The banks that are moving fastest are not using multiple integrators in parallel. They are using one orchestrator with the authority to align strategy, technology, and operations across all vendors. That single accountable hand is the difference between a 48-month program and a 22-month program.</p>
+  <p>Three operational shifts make this work: (1) Requirements flow from vision down through architecture into execution — no re-negotiation at each layer. (2) Vendor work is sequenced, not concurrent — each vendor's output becomes the next vendor's input. (3) Program governance is outcome-focused — metrics track transformation value, not schedule conformance.</p>
+  <h3>The roles that enable orchestration</h3>
+  <ul class="dlist">
+    <li>The Chief Transformation Officer owns the vision and roadmap.</li>
+    <li>Ejada owns the strategy-to-execution translation and vendor alignment.</li>
+    <li>Each vendor (SAP, Oracle, etc.) owns their specialty and operational excellence.</li>
+    <li>The Risk Office (internal to the bank) owns regulatory compliance and operational continuity.</li>
+  </ul>
+  <p>The breakthrough: when these roles are crystal clear, there is no ambiguity about accountability. Ejada does not blame vendors for delays because the sequence is pre-negotiated. Vendors do not blame Ejada for scope changes because the architecture is locked.</p>
+  <div class="author"><span><b>Khalid Al-Khudairi</b> — Partner, Financial Services</span><span class="link">LinkedIn Profile →</span></div>
+  <h3>Related insights</h3>
+  <ul class="dlist">
+    <li><b>Zero-Downtime Banking Migration: The checklist</b><span>How to execute a core banking cutover while serving 700,000+ daily SAMA requests with zero unplanned downtime.</span></li>
+    <li><b>Regulatory compliance at scale</b><span>Building regulator-aligned systems into a SAP core banking platform. The configuration, testing, and regulatory framework.</span></li>
+    <li><b>The Intelligent Banking Transformation solution</b><span>A productized engagement combining Enterprise Apps, Staffing Solutions, and Cloud. 12-week pilot ready.</span></li>
+  </ul>
+</template>
+
+<template id="t-orchestrator">
+  <div class="eyebrow">Executive commentary · 27 February 2026 · 6 min read</div>
+  <h2>From integrator to strategic partner: why the model has to change.</h2>
+  <p class="standfirst">The post-integration economy is here. The enterprises that will thrive in the next 25 years are those that shift from buying integration services to buying orchestration disciplines. Here's why that distinction matters, and what has to change.</p>
+  <p>Twenty-five years ago, enterprise transformation was an integration problem. You had a finance system here, a supply chain system there, a customer system across the sea. You hired an integrator to wire them together. The integrator built connectors. Work was done in quarters. Projects succeeded or failed based on whether systems talked to each other.</p>
+  <p>That world is gone. Modern enterprises do not assemble static systems. They orchestrate constantly evolving ecosystems of cloud services, partner APIs, and internal platforms. The problem is no longer horizontal — connecting A to B to C. It is vertical and temporal: sequencing work across vendors over 24 months, where each vendor's output becomes the next vendor's input, and the outcome is measured in enterprise value, not system availability.</p>
+  <h3>Why integration is no longer enough</h3>
+  <p>The integrator works best when the problem is bounded. You have System A, System B, a clear set of data flows, and a defined end-state. The integrator designs the connectors, tests them, declares victory, and leaves. This works beautifully for point-to-point transformations.</p>
+  <p>But orchestration is different. You do not know in advance how many vendors will participate. You do not know which capabilities will be required before you start discovering them. You do not have a fixed end-state — you have a strategy, and the architecture and execution must continuously adapt to the market. An orchestrator does not design once and execute. An orchestrator discovers continuously, designs iteratively, and holds program governance accountable to outcomes that shift as the Kingdom shifts.</p>
+  <p class="pull">The Kingdom does not need better integrators. We already have them. We need orchestrators — firms willing to be accountable for the entire value chain, from strategy to execution, across 12+ vendors, for 24 months, with outcomes measured in enterprise impact.</p>
+  <h3>The three shifts required</h3>
+  <p>Shifting from integration to orchestration requires three fundamental changes in how we operate. First, accountability moves from vendor management to outcome ownership. The old integrator model says: "We connected your systems. If there is a business outcome problem, that is your operations problem." The orchestrator model says: "We are accountable for the business outcome. If it is not happening, our program structure is wrong, and we adapt."</p>
+  <p>Second, team composition changes. Integrators are technology people managing vendor relationships. Orchestrators are business architects managing technology vendors. Our team includes strategists, architects, program leads, and outcomes officers — with the CTO as a consultant, not the decision-maker.</p>
+  <p>Third, contracting becomes outcome-based instead of deliverable-based. The old model: "Deliver 47 integrations by Q3." The new model: "Deliver 35% cost reduction, 22-month runway, and operational continuity across 12 vendors — and we will adapt the approach to achieve it."</p>
+  <p>These are not marginal improvements. They are a fundamental reset of how enterprises think about transformation, who they hire, and how they measure success.</p>
+  <div class="author"><span><b>Mohammad Hassoobh</b> — Chief Executive Officer, Ejada</span><span class="link">LinkedIn Profile →</span></div>
+  <h3>Related insights</h3>
+  <ul class="dlist">
+    <li><b>The Orchestration Engine: 4 layers, 1 accountability hand</b><span>How the Strategy-Execution-Experience-Intelligence model enables program governance across 12+ vendors and 24+ months.</span></li>
+    <li><b>Outcome-based contracting in enterprise transformation</b><span>Why the contracts that drive the best results are not fixed-price — they are outcome-based with shared risk.</span></li>
+    <li><b>The Chief Transformation Officer: new role for the Kingdom</b><span>What boards are learning about the organizational structure required to move from integration to orchestration.</span></li>
+  </ul>
+  <div class="quote" style="margin-top:30px"><cite>READY TO SHIFT MODELS?</cite><p style="margin-top:8px">Let's talk about orchestration for your enterprise.</p><span style="color:var(--cream);opacity:.8">Ninety minutes with a partner-track architect to map your transformation and identify your first orchestration move.</span><div style="margin-top:16px"><a class="btn btn-primary" href="#workshop" data-close>Engage with us →</a></div></div>
+</template>
+
+<template id="t-erp">
+  <div class="eyebrow">Capability 01 / 07 · Enterprise Apps &amp; ERP</div>
+  <h2>SAP, Oracle, and the operating spine of the Kingdom's enterprises.</h2>
+  <p class="standfirst">We modernize and orchestrate the enterprise core into one coherent system.</p>
+  <ul class="chips"><li>25+ YEARS</li><li>SAP S/4HANA</li><li>RISE</li><li>GROW</li><li>ORACLE FUSION</li><li>EBS</li><li>ONE ACCOUNTABLE HAND</li></ul>
+  <p>Enterprise applications are where transformation is felt or fails. We have spent twenty-five years standing between the boardroom ambition and the back-office reality — modernizing cores, re-platforming the workhorse systems that run banks, ministries, and mega-projects across the Kingdom.</p>
+  <p>What sets us apart is the refusal to let the platform dictate the model. We architect the operating system first; we sequence the migration second; we run the program with one accountable hand. The vendor stack serves the outcome, not the other way round.</p>
+  <h3>Six lines of work, one accountable hand.</h3>
+  <p style="color:var(--mute)">Each is a proven discipline with a partner-track lead and a delivery footprint across the Kingdom and the wider region.</p>
+  <ul class="dlist">
+    <li><small>01/06</small><b>SAP S/4HANA</b><span>Greenfield, brownfield, and selective transformations — RISE-aware, GROW-aware, and regulator-aware throughout.</span></li>
+    <li><small>02/06</small><b>Oracle Fusion</b><span>Cloud ERP, EPM, HCM, and SCM — landed at scale across government and enterprise. Co-existence with on-premise where the policy demands it.</span></li>
+    <li><small>03/06</small><b>Microsoft Dynamics</b><span>Dynamics 365 across F&amp;O, CE, and Business Central — for organizations choosing the Microsoft estate.</span></li>
+    <li><small>04/06</small><b>Industry-specific apps</b><span>Temenos and Flexcube for banking. Cerner and Epic for healthcare. Sector platforms where ERP alone won't cover the operating model.</span></li>
+    <li><small>05/06</small><b>ERP Modernization</b><span>From custom-coded legacy to a clean-core target — without losing a minute of operations. Our specialism.</span></li>
+    <li><small>06/06</small><b>Application Managed Services</b><span>The lights stay on. 24×7 application support, change management, value tracking. We do not hand over and walk away.</span></li>
+  </ul>
+  <h3>Where this capability shows up.</h3>
+  <p style="color:var(--mute)">Enterprise apps are sector-shaped. The reference architectures we deploy in banking are not the ones we deploy in government. We carry the muscle memory.</p>
+  <ul class="dlist">
+    <li><span class="count">62</span><b>Financial Services</b><span>Cores, treasuries, payment hubs. Regulator-aligned where it matters.</span></li>
+    <li><span class="count">98</span><b>Government</b><span>Ministries on Oracle and SAP. Sovereign-cloud-ready ERPs.</span></li>
+    <li><span class="count">22</span><b>Healthcare</b><span>Provider and payer platforms with sector apps on top.</span></li>
+    <li><span class="count">9</span><b>Mega Projects</b><span>Owner-side ERPs for programmes the size of small economies.</span></li>
+    <li><span class="count">26</span><b>Retail</b><span>Modern-trade ERPs with loyalty, payments, and supply on top.</span></li>
+    <li><span class="count">31</span><b>Energy</b><span>Oil &amp; gas, utilities, and water — finance and assets unified.</span></li>
+  </ul>
+  <h3>Productized, deployable, in 12 weeks.</h3>
+  <p style="color:var(--mute)">Where this capability anchors a named solution, the engagement compresses to a pilot in 12 weeks and a Discover workshop in 90 minutes.</p>
+  <ul class="dlist">
+    <li><small>Enterprise Apps · Financial Services</small><b>Intelligent Banking Transformation</b><span>Modernize the core, comply with SAMA, ship new products faster.</span></li>
+    <li><small>Data &amp; AI · Cross-sector</small><b>Enterprise Automation</b><span>Automate cross-functional workflows with measurable cost takeout.</span></li>
+    <li><small>Digital Transformation &amp; UX · Government</small><b>Digital Government Experience</b><span>Citizen-grade services across ministries and authorities, end-to-end.</span></li>
+  </ul>
+  <div class="quote" style="margin-top:30px"><p>Engage on Enterprise Apps &amp; ERP.</p><span style="color:var(--cream);opacity:.85">Talk to a partner-track architect. Ninety minutes. We map the target operating model and the first sequenced move.</span><div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-primary" href="#workshop" data-close>Engage with us →</a><a class="btn btn-ghost" href="#workshop" data-close>Visit our HQ</a></div></div>
+  <h3>Proof, coverage, and programs connected to this capability.</h3>
+  <ul class="chips"><li>Case studies</li><li>News</li><li>Insights</li><li>Events</li></ul>
+  <ul class="dlist">
+    <li><button type="button" data-open="govcase"><b>Citizen-grade services across a national authority — built once, scaled everywhere.</b><span>Read →</span></button></li>
+    <li><button type="button" data-open="corecase"><b>How a leading Saudi bank modernized its core without a minute of downtime.</b><span>Read →</span></button></li>
+    <li><button type="button" data-open="caselib"><b>All case studies →</b></button></li>
+  </ul>
+</template>
+
+<template id="t-caselib">
+  <div class="eyebrow">Case studies · The portfolio</div>
+  <h2>Orchestration in action. Measurable outcomes.</h2>
+  <p class="standfirst">Documented client outcomes from the Kingdom's most demanding programs. Anonymized by default.</p>
+  <div class="dstats"><div><b>200+</b><span>PROJECTS</span></div><div><b>44</b><span>DOCUMENTED</span></div><div><b>0</b><span>DOWNTIME</span></div></div>
+  <ul class="dlist">
+    <li><button type="button" data-open="corecase"><small>CASE STUDY · FINANCIAL SERVICES</small><b>How a leading Saudi bank modernized its core without a minute of downtime.</b><span>700,000+ daily SAMA requests · 0 minutes downtime · 11 vendors orchestrated</span></button></li>
+    <li><button type="button" data-open="govcase"><small>CASE STUDY · GOVERNMENT</small><b>Citizen-grade services across a national authority — built once, scaled everywhere.</b><span>4.2M citizens served · 88% net promoter score · 23 services unified</span></button></li>
+  </ul>
+</template>
+
+<template id="t-govcase">
+  <div class="eyebrow">Case study · Government</div>
+  <h2>Citizen-grade services across a national authority — built once, scaled everywhere.</h2>
+  <p class="standfirst">A major government authority unified 23 separate digital services into one platform serving 4.2M citizens and 500K+ government employees. Orchestrated across 7 vendors. 18-month timeline. 88% NPS.</p>
+  <ul class="chips"><li>Digital Transformation &amp; UX</li><li>Data &amp; AI</li><li>Cloud &amp; Infrastructure</li></ul>
+  <div class="dstats"><div><b>4.2M</b><span>CITIZENS SERVED</span></div><div><b>88%</b><span>NET PROMOTER SCORE</span></div><div><b>23</b><span>SERVICES UNIFIED</span></div></div>
+  <div class="quote"><p>"Ejada's approach gave us the permission to move fast and think big. Instead of forcing 23 ministries into one technology, we gave them one experience layer and let them keep their own systems. That's orchestration."</p><cite>— Chief Digital Officer, National Government Authority</cite></div>
+  <h3>Related</h3>
+  <ul class="dlist">
+    <li><button type="button" data-open="corecase"><b>SAMA Banking Modernization: Zero-downtime core migration</b></button></li>
+    <li><small>SOLUTION</small><b>Digital Government Experience</b></li>
+    <li><small>INSIGHT</small><b>Multi-ministry orchestration: governance and interoperability</b></li>
+  </ul>
+  <div class="quote" style="margin-top:24px"><cite>READY TO MODERNIZE GOVERNMENT SERVICES?</cite><p style="margin-top:8px">Let's map your citizen experience transformation.</p><a class="btn btn-primary" href="#workshop" data-close>Engage with us →</a></div>
+</template>
+
+
+
+<script>
+(function () {
+  var html = document.documentElement, btn = document.getElementById("themeBtn");
+  function apply(m) {
+    html.classList.toggle("light", m === "light");
+    btn.setAttribute("aria-pressed", m === "light" ? "true" : "false");
+    btn.querySelector("span").textContent = m === "light" ? "Dark" : "Light";
+    try { localStorage.setItem("ejada-fs-theme", m); } catch (e) {}
+  }
+  var m = "dark";
+  try { m = localStorage.getItem("ejada-fs-theme") || "dark"; } catch (e) {}
+  if (location.hash === "#light") m = "light"; else if (location.hash === "#dark") m = "dark";
+  apply(m);
+  btn.addEventListener("click", function () { apply(html.classList.contains("light") ? "dark" : "light"); });
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function smooth(el) { if (!el) return; if (window.lenis) window.lenis.scrollTo(el, { offset: -80, duration: 1.3 }); else el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }
+
+  /* ---------- toast ---------- */
+  var toastEl = null, toastT = 0;
+  function toast(msg) {
+    if (!toastEl) { toastEl = document.createElement("div"); toastEl.className = "toast"; toastEl.setAttribute("role", "status"); document.body.appendChild(toastEl); }
+    toastEl.textContent = msg; toastEl.hidden = false; clearTimeout(toastT);
+    toastT = setTimeout(function () { toastEl.hidden = true; }, 3400);
+  }
+
+  /* ---------- reader drawer ---------- */
+  var scrim = null, drawer = null, lastFocus = null;
+  function openDrawer(key) {
+    var tpl = document.getElementById("t-" + key); if (!tpl) return;
+    if (!drawer || drawer.hidden) lastFocus = document.activeElement;
+    if (!drawer) {
+      scrim = document.createElement("div"); scrim.className = "scrim";
+      drawer = document.createElement("aside"); drawer.className = "drawer"; drawer.setAttribute("role", "dialog"); drawer.setAttribute("aria-modal", "true"); drawer.setAttribute("data-lenis-prevent", "");
+      document.body.append(scrim, drawer); scrim.addEventListener("click", closeDrawer);
+    }
+    drawer.innerHTML = '<div class="drawer-bar"><img src="img/ejada-logo-white.png" alt="Ejada" style="height:26px;width:auto"><button class="close" type="button" data-close>Close ✕</button></div>';
+    drawer.appendChild(tpl.content.cloneNode(true));
+    drawer.setAttribute("aria-label", (drawer.querySelector("h2") || {}).textContent || "Reader");
+    scrim.hidden = false; drawer.hidden = false; drawer.scrollTop = 0;
+    drawer.style.animation = "none"; void drawer.offsetWidth; drawer.style.animation = "";
+    document.body.style.overflow = "hidden"; if (window.lenis) window.lenis.stop();
+    drawer.querySelector(".close").focus();
+  }
+  function closeDrawer() {
+    if (!drawer || drawer.hidden) return;
+    drawer.hidden = true; scrim.hidden = true; document.body.style.overflow = ""; if (window.lenis) window.lenis.start();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeDrawer(); closeMega(); } });
+  document.addEventListener("click", function (e) {
+    var toc = e.target.closest(".drawer .toc a");
+    if (toc) { e.preventDefault(); smooth(drawer.querySelector(toc.getAttribute("href"))); return; }
+    var t = e.target.closest("[data-open],[data-close],[data-toast],[data-addcap]");
+    if (!t) return;
+    if (t.hasAttribute("data-open")) { e.preventDefault(); closeMega(); closeMenu(); openDrawer(t.getAttribute("data-open")); }
+    else if (t.hasAttribute("data-close")) { var href = t.getAttribute("href"); closeDrawer(); if (href && href.charAt(0) === "#") { e.preventDefault(); smooth(document.querySelector(href)); } }
+    else if (t.hasAttribute("data-toast")) toast(t.getAttribute("data-toast"));
+    else if (t.hasAttribute("data-addcap")) {
+      var k = t.getAttribute("data-addcap"); toggle("caps", k, true);
+      toast(CAPS.filter(function (c) { return c.k === k; })[0].t + " added to your case.");
+    }
+  });
+
+  /* ---------- nav ---------- */
+  var mega = $("#mega"), sectorsBtn = $("#sectorsBtn"), menu = $("#menu"), burger = $("#burger"), topbar = $("#topbar");
+  function closeMega() { mega.hidden = true; sectorsBtn.setAttribute("aria-expanded", "false"); }
+  function closeMenu() { menu.classList.remove("open"); burger.setAttribute("aria-expanded", "false"); }
+  sectorsBtn.addEventListener("click", function (e) { e.stopPropagation(); var o = mega.hidden; mega.hidden = !o; sectorsBtn.setAttribute("aria-expanded", String(o)); });
+  mega.addEventListener("click", function (e) {
+    var a = e.target.closest(".mega-item"); if (!a) return; closeMega(); closeMenu();
+    if (!a.classList.contains("current")) toast("This prototype covers Financial Services. Other sector pages follow the same template.");
+  });
+  document.addEventListener("click", function (e) { if (!mega.hidden && !e.target.closest("#mega") && e.target !== sectorsBtn) closeMega(); });
+  burger.addEventListener("click", function () { var o = !menu.classList.contains("open"); menu.classList.toggle("open", o); burger.setAttribute("aria-expanded", String(o)); });
+  menu.addEventListener("click", function (e) { if (e.target.closest("a")) closeMenu(); });
+  $("#langBtn").addEventListener("click", function () { toast("The Arabic version is not part of this prototype yet."); });
+
+  /* ================= data ================= */
+  var SEGS = [
+    { k: "retail", t: "Retail Banking", d: "Digital banking platforms, loyalty programs, and customer experience modernization for consumer-facing institutions.", pos: "50% 92%" },
+    { k: "corp", t: "Corporate Banking", d: "Treasury platforms, trade finance systems, and corporate digital experiences for enterprise clients.", pos: "50% 30%" },
+    { k: "treasury", t: "Treasury & Capital Markets", d: "Core treasury platforms, capital-markets connectivity, and liquidity management.", pos: "85% 55%" },
+    { k: "risk", t: "Compliance & Risk", d: "SAMA-integrated regulatory reporting, AML/KYC systems, and enterprise risk management.", pos: "15% 60%" }
+  ];
+  var GOALS = [
+    { k: "core", t: "Modernize the core", d: "Legacy core to a contemporary platform." },
+    { k: "sama", t: "Comply with SAMA", d: "Real-time SAMA compliance reporting." },
+    { k: "products", t: "Ship new products faster", d: "New products in weeks, not months." },
+    { k: "digital", t: "Scale digital channels", d: "For retail and corporate customers." },
+    { k: "intel", t: "Risk analytics & fraud detection", d: "Customer intelligence from your data." }
+  ];
+  var CAPS = [
+    { k: "erp", t: "Enterprise Apps & ERP", d: "SAP, Oracle, core banking platforms." },
+    { k: "staff", t: "Staffing Solutions", d: "Sector-fluent banking specialists on demand." },
+    { k: "data", t: "Data & AI", d: "Risk analytics, fraud detection, customer intelligence." },
+    { k: "cloud", t: "Cloud & Infrastructure", d: "Sovereign cloud, hybrid models, disaster recovery." },
+    { k: "cyber", t: "Cybersecurity", d: "" },
+    { k: "ux", t: "Digital Transformation & UX", d: "" },
+    { k: "ms", t: "Managed Services", d: "" }
+  ];
+  var PLATFORMS = [
+    { k: "sap", t: "SAP S/4HANA", d: "RISE-aware, GROW-aware, and regulator-aware." },
+    { k: "oracle", t: "Oracle Fusion", d: "Cloud ERP, EPM, HCM, and SCM." },
+    { k: "dyn", t: "Microsoft Dynamics", d: "Dynamics 365 across F&O, CE, and Business Central." },
+    { k: "temenos", t: "Temenos & Flexcube", d: "Industry-specific apps for banking." },
+    { k: "modern", t: "ERP Modernization", d: "Custom-coded legacy to a clean-core target." },
+    { k: "ams", t: "Application Managed Services", d: "24×7 application support, change management, value tracking." }
+  ];
+  var CONSTRAINTS = [
+    { k: "zero", t: "Zero downtime is non-negotiable", d: "Live operations cannot stop during cutover." },
+    { k: "vendors", t: "Several vendors already involved", d: "Integrators and platforms to align." },
+    { k: "deadline", t: "Regulatory deadline to meet", d: "SAMA mandates set the clock." }
+  ];
+  var TIMES = ["Next 2 weeks", "Next month", "Next quarter", "Unsure"];
+  var PAPERS = {
+    playbook: "The Strategic Partner's Playbook for Saudi Banking Modernization (2026)",
+    zerodt: "Zero-Downtime Core Banking Migration Framework",
+    product: "Core Banking Product Configuration: A Reference Implementation",
+    ai: "Decision Intelligence in Regulated Environments: Building Governed AI",
+    gov2: "Orchestration Governance: Structures, Roles, and Operating Rhythms"
+  };
+
+  var B = { seg: "retail", goals: {}, caps: { erp: true }, plats: {}, cons: {}, time: -1, org: "" };
+
+  /* ================= sub-segment picks ================= */
+  function showSeg(k) { $$("[data-pickseg]").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.pickseg === k ? "true" : "false"); }); }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-pickseg]"); if (!b) return;
+    B.seg = b.dataset.pickseg; showSeg(B.seg); renderBuilder();
+    toast(SEGS.filter(function (s) { return s.k === B.seg; })[0].t + " is now the focus of your case.");
+  });
+  showSeg(B.seg);
+
+  /* ================= case builder ================= */
+  var bsteps = $("#bsteps"), sheet = $("#sheet");
+  function opts(group, list, multi, big) {
+    return '<div class="opts">' + list.map(function (o) {
+      return '<button type="button" class="opt' + (big ? ' big' : '') + '" data-g="' + group + '" data-k="' + o.k + '" aria-pressed="false"><b>' + esc(o.t) + '</b>' + (o.d ? '<span>' + esc(o.d) + '</span>' : '') + '</button>';
+    }).join("") + '</div>';
+  }
+  function step(n, title, sub, body) {
+    return '<div class="bstep"><div class="bstep-h"><span class="n" data-step="' + n + '">0' + n + '</span><h3>' + title + '<small>' + sub + '</small></h3></div>' + body + '</div>';
+  }
+  bsteps.innerHTML =
+    step(1, "Where do you operate?", "Pick the part of financial services you lead.", opts("seg", SEGS.map(function (s) { return { k: s.k, t: s.t, d: s.d }; }), false, true) +
+      '<label class="org" for="b-org">Your organization (optional)<input id="b-org" placeholder="e.g. a Saudi bank" autocomplete="organization"></label>') +
+    step(2, "What must the program achieve?", "Choose every outcome that matters.", opts("goals", GOALS, true)) +
+    step(3, "Which services do you want in scope?", "Capabilities, plus platform focus if you have one.", opts("caps", CAPS, true) + '<div class="eyebrow dim" style="margin:16px 0 10px">Platform focus · optional</div>' + opts("plats", PLATFORMS, true)) +
+    step(4, "What is your reality?", "Constraints shape the orchestration approach.", opts("cons", CONSTRAINTS, true)) +
+    step(5, "When do you want to start?", "Preferred timeframe for your Discover session.", opts("time", TIMES.map(function (t, i) { return { k: String(i), t: t }; }), false));
+
+  function toggle(group, k, forceOn) {
+    if (group === "seg") { B.seg = k; showSeg(k); }
+    else if (group === "time") B.time = (B.time === +k && !forceOn) ? -1 : +k;
+    else { var g = B[group]; if (forceOn) g[k] = true; else if (g[k]) delete g[k]; else g[k] = true; }
+    renderBuilder();
+  }
+  bsteps.addEventListener("click", function (e) { var b = e.target.closest(".opt"); if (b) toggle(b.dataset.g, b.dataset.k); });
+  $("#b-org").addEventListener("input", function (e) { B.org = e.target.value.trim(); renderBuilder(); });
+
+  function keys(o) { return Object.keys(o); }
+  function pick(list, o) { return list.filter(function (x) { return o[x.k]; }); }
+  function caseModel() {
+    var seg = SEGS.filter(function (s) { return s.k === B.seg; })[0];
+    var goals = pick(GOALS, B.goals), caps = pick(CAPS, B.caps), plats = pick(PLATFORMS, B.plats), cons = pick(CONSTRAINTS, B.cons);
+    var G = B.goals, C = B.cons, K = B.caps;
+    var proof = [];
+    if (G.core || C.zero || C.vendors) proof.push({ open: "corecase", t: "Core modernization without downtime", d: "700,000+ daily SAMA requests • 11 vendors orchestrated • 0 minutes downtime" });
+    if (G.products) proof.push({ t: "Banking product launch", d: "14 new products • fully audit-trailed • 120+ customers on day-one" });
+    if (G.sama || B.seg === "risk" || C.deadline) proof.push({ t: "Regulatory reporting automation", d: "15 financial institutions • 98% accuracy • 8-minute monthly close" });
+    var papers = [];
+    if (G.core || C.vendors) papers.push("playbook");
+    if (C.zero) papers.push("zerodt");
+    if (G.products) papers.push("product");
+    if (G.intel || K.data) papers.push("ai");
+    if (C.vendors) papers.push("gov2");
+    var approach = ["One accountable hand across every workstream."];
+    if (C.vendors) approach.push("Vendor work is sequenced, not concurrent: each vendor's output becomes the next vendor's input.");
+    if (C.zero) approach.push("Dual-run protocol: old core and new platform run in parallel before cutover.");
+    if (G.sama || C.deadline) approach.push("Program governance stays outcome-focused, with SAMA reporting kept live throughout.");
+    var solution = (G.core || G.sama || G.products || K.erp) ? true : false;
+    var score = 20 + (goals.length ? 25 : 0) + (caps.length ? 25 : 0) + (cons.length ? 15 : 0) + (B.time >= 0 ? 15 : 0);
+    return { seg: seg, goals: goals, caps: caps, plats: plats, cons: cons, proof: proof, papers: papers, approach: approach, solution: solution, score: score };
+  }
+  function list(items, fn, empty) { return items.length ? '<ul>' + items.map(fn).join("") + '</ul>' : '<span class="empty">' + empty + '</span>'; }
+  function renderBuilder() {
+    $$(".opt", bsteps).forEach(function (b) {
+      var g = b.dataset.g, k = b.dataset.k, on = g === "seg" ? B.seg === k : g === "time" ? B.time === +k : !!B[g][k];
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    var done = [true, keys(B.goals).length > 0, keys(B.caps).length > 0, keys(B.cons).length > 0, B.time >= 0];
+    $$(".bstep-h .n", bsteps).forEach(function (n, i) { n.classList.toggle("done", done[i]); });
+    var m = caseModel();
+    $("#sheetFor").textContent = B.org ? "Prepared for " + B.org : "Your transformation case";
+    $("#sheetTitle").textContent = m.seg.t + " transformation";
+    sheet.innerHTML =
+      '<div class="meter"><div class="meter-row"><span>CASE COMPLETENESS</span><span>' + m.score + '%</span></div><div class="meter-bar"><i style="width:' + m.score + '%"></i></div></div>' +
+      '<div class="srow"><span class="eyebrow">Your ambition</span>' + list(m.goals, function (g) { return '<li>' + esc(g.t) + '<small>' + esc(g.d) + '</small></li>'; }, "Pick the outcomes your program must deliver.") + '</div>' +
+      '<div class="srow"><span class="eyebrow">Services in scope</span>' + list(m.caps.concat(m.plats), function (c) { return '<li>' + esc(c.t) + (c.d ? '<small>' + esc(c.d) + '</small>' : '') + '</li>'; }, "Add the capabilities you want Ejada to bring.") + '</div>' +
+      '<div class="srow"><span class="eyebrow">How Ejada orchestrates it</span><div class="phase-line"><span>DISCOVER</span><span>ARCHITECT</span><span>ORCHESTRATE / VALIDATE</span></div>' +
+        '<ul>' + m.approach.map(function (a) { return '<li>' + esc(a) + '</li>'; }).join("") + '</ul></div>' +
+      (m.solution ? '<div class="sol"><span class="eyebrow" style="font-size:.62rem">Matched solution</span><b>Intelligent Banking Transformation</b><span>Modernize the core, comply with SAMA, ship new products faster. Pilot-ready in 12 weeks.</span></div>' : '') +
+      '<div class="srow"><span class="eyebrow">Proof that matches</span>' + list(m.proof.concat(m.papers.map(function (p) { return { paper: p, t: PAPERS[p], d: "Whitepaper" }; })), function (p) {
+        var attr = p.open ? ' data-open="' + p.open + '"' : p.paper ? ' data-paper="' + p.paper + '"' : '';
+        return '<li class="' + (attr ? 'proof' : '') + '"' + attr + (attr ? ' tabindex="0" role="button"' : '') + '>' + esc(p.t) + '<small>' + esc(p.d) + '</small></li>';
+      }, "Choose outcomes and constraints to see matching case studies and whitepapers.") + '</div>' +
+      '<div class="srow"><span class="eyebrow">Next step</span><ul><li>90-minute Discover workshop' + (B.time >= 0 ? ' · ' + TIMES[B.time] : '') + '<small>A costed first move within five working days.</small></li></ul></div>' +
+      '<div class="sheet-actions"><button class="btn btn-primary" type="button" id="attachBtn"' + (m.goals.length && m.caps.length ? '' : ' disabled') + '>Attach to workshop request →</button><button class="btn btn-ghost" type="button" id="copyBtn">Copy summary</button><button class="btn btn-ghost" type="button" id="resetBtn">Reset</button></div>';
+    $$("#papersList li").forEach(function (li) { li.classList.toggle("match", m.papers.indexOf(li.dataset.p) >= 0); });
+  }
+  function summary() {
+    var m = caseModel(), L = [];
+    L.push((B.org ? B.org + " — " : "") + m.seg.t + " transformation case");
+    if (m.goals.length) L.push("Ambition: " + m.goals.map(function (g) { return g.t; }).join("; "));
+    if (m.caps.length || m.plats.length) L.push("Services in scope: " + m.caps.concat(m.plats).map(function (c) { return c.t; }).join("; "));
+    if (m.cons.length) L.push("Constraints: " + m.cons.map(function (c) { return c.t; }).join("; "));
+    if (B.time >= 0) L.push("Timeframe: " + TIMES[B.time]);
+    return L.join("\n");
+  }
+  sheet.addEventListener("click", function (e) {
+    var p = e.target.closest("[data-paper]");
+    if (p) { var li = $('#papersList li[data-p="' + p.dataset.paper + '"]'); smooth(li); return; }
+    if (e.target.closest("#resetBtn")) { B = { seg: "retail", goals: {}, caps: { erp: true }, plats: {}, cons: {}, time: -1, org: "" }; $("#b-org").value = ""; showSeg("retail"); renderBuilder(); return; }
+    if (e.target.closest("#copyBtn")) {
+      var text = summary();
+      try { navigator.clipboard.writeText(text).then(function () { toast("Case summary copied."); }, function () { toast("Copy is blocked here. The summary goes into the workshop form when you attach it."); }); }
+      catch (err) { toast("Copy is blocked here. The summary goes into the workshop form when you attach it."); }
+      return;
+    }
+    if (e.target.closest("#attachBtn")) {
+      var m = caseModel();
+      CAPS.forEach(function (c) { var cb = $("#c-" + c.k); if (cb) cb.checked = !!B.caps[c.k]; });
+      if (B.org) $("#w-co").value = B.org;
+      $("#w-sector").value = "Financial Services";
+      $("#w-outcome").value = summary();
+      if (B.time >= 0) $("#tf-" + B.time).checked = true;
+      var att = $("#attached"); att.classList.add("on");
+      att.innerHTML = '<span class="eyebrow">Case attached</span><div style="margin-top:4px"><b>' + esc(m.seg.t) + ' transformation</b> · ' + m.goals.length + ' outcomes · ' + (m.caps.length + m.plats.length) + ' services · ' + m.proof.length + ' matching case studies</div>';
+      smooth($("#workshop"));
+      toast("Your case is attached to the workshop request.");
+    }
+  });
+  sheet.addEventListener("keydown", function (e) { if ((e.key === "Enter" || e.key === " ") && e.target.matches("li.proof")) { e.preventDefault(); e.target.click(); } });
+  renderBuilder();
+
+  /* ---------- workshop form ---------- */
+  $("#wsForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = $("#wsMsg"), email = $("#w-email").value.trim();
+    if (!$("#w-name").value.trim()) { msg.textContent = "Add your full name so we know who to confirm with."; $("#w-name").focus(); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = "Enter a work email, for example name@company.com."; $("#w-email").focus(); return; }
+    if (!$("#w-consent").checked) { msg.textContent = "Tick the PDPL consent box to continue."; return; }
+    msg.textContent = "Prototype only: nothing was sent. On the live site this request goes to the sector team.";
+  });
+
+  /* ---------- scroll: dots, solid nav, hero parallax ---------- */
+  var sceneEls = $$("[data-scene]"), dots = $("#dots"), currentEl = null;
+  dots.innerHTML = sceneEls.map(function (el, i) { return '<button type="button" data-k="' + i + '" aria-label="' + esc(el.dataset.label) + '" title="' + esc(el.dataset.label) + '"></button>'; }).join("");
+  dots.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) smooth(sceneEls[+b.dataset.k]); });
+  function onScroll() {
+    var y = window.scrollY, mid = window.innerHeight * 0.5, found = null;
+    topbar.classList.toggle("solid", y > 40);
+    for (var i = 0; i < sceneEls.length; i++) { var r = sceneEls[i].getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) { found = sceneEls[i]; break; } }
+    if (!found) found = y < 10 ? sceneEls[0] : sceneEls[sceneEls.length - 1];
+    if (found !== currentEl) { currentEl = found; dots.querySelectorAll("button").forEach(function (b, k) { b.setAttribute("aria-current", sceneEls[k] === found ? "true" : "false"); }); }
+  }
+  var ticking = false;
+  window.addEventListener("scroll", function () { if (ticking) return; ticking = true; requestAnimationFrame(function () { ticking = false; onScroll(); }); }, { passive: true });
+  window.addEventListener("resize", onScroll); onScroll();
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function () {
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
+
+  /* keyboard for role=button cards */
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches('[role="button"]:not(button)')) { e.preventDefault(); e.target.click(); }
+  });
+
+  /* hero video */
+  var vid = $("#heroVideo");
+  if (vid) { if (reduce) vid.pause(); else { var p = vid.play(); if (p && p.catch) p.catch(function () {}); } }
+
+  /* ---------- custom cursor ---------- */
+  if (fine && !reduce) {
+    var cur = document.createElement("div"); cur.className = "cursor"; cur.innerHTML = "<b></b>"; document.body.appendChild(cur);
+    var cx = innerWidth / 2, cy = innerHeight / 2, tx = cx, ty = cy;
+    window.addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; }, { passive: true });
+    (function loop() { cx += (tx - cx) * 0.22; cy += (ty - cy) * 0.22; cur.style.transform = "translate(" + cx + "px," + cy + "px)"; requestAnimationFrame(loop); })();
+    document.addEventListener("pointerover", function (e) {
+      var t = e.target.closest("[data-cursor]");
+      if (t) { cur.classList.add("big"); cur.firstChild.textContent = t.getAttribute("data-cursor"); }
+      else cur.classList.remove("big");
+    });
+  }
+
+  /* ---------- magnetic buttons ---------- */
+  if (fine && !reduce) $$("[data-magnetic]").forEach(function (b) {
+    b.addEventListener("pointermove", function (e) {
+      var r = b.getBoundingClientRect();
+      b.style.transform = "translate(" + ((e.clientX - r.left - r.width / 2) * 0.22).toFixed(1) + "px," + ((e.clientY - r.top - r.height / 2) * 0.32).toFixed(1) + "px)";
+    });
+    b.addEventListener("pointerleave", function () { b.style.transform = ""; });
+  });
+
+  /* ---------- tilt cards ---------- */
+  if (fine && !reduce) $$("[data-tilt]").forEach(function (c) {
+    c.addEventListener("pointermove", function (e) {
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+      c.style.transform = "perspective(900px) rotateY(" + (x * 7).toFixed(2) + "deg) rotateX(" + (-y * 7).toFixed(2) + "deg)";
+    });
+    c.addEventListener("pointerleave", function () { c.style.transform = ""; });
+  });
+
+  /* ---------- capability hover image ---------- */
+  var hov = $("#hoverImg"), list = $("#capList");
+  if (hov && list && fine) {
+    var imgs = $$("img", hov), hx = 0, hy = 0, px = 0, py = 0, active = false;
+    list.addEventListener("pointermove", function (e) { hx = e.clientX; hy = e.clientY; });
+    $$(".cap-row", list).forEach(function (row) {
+      row.addEventListener("pointerenter", function () {
+        var i = +row.dataset.img; imgs.forEach(function (im, k) { im.classList.toggle("on", k === i); });
+        hov.classList.add("on"); active = true;
+      });
+    });
+    list.addEventListener("pointerleave", function () { hov.classList.remove("on"); active = false; });
+    (function loop() { px += (hx - px) * 0.14; py += (hy - py) * 0.14; if (active) hov.style.left = px + "px", hov.style.top = py + "px"; requestAnimationFrame(loop); })();
+  }
+
+  /* ---------- counters ---------- */
+  function countUp(el, dur) {
+    var n = +el.dataset.count, suf = el.dataset.suffix || "", t0 = null;
+    function fmt(v) { return Math.round(v).toLocaleString("en-US") + suf; }
+    if (reduce || !n) { el.textContent = fmt(n); return; }
+    function step(ts) { if (!t0) t0 = ts; var p = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(n * e); if (p < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+
+  if (!hasGsap || reduce) return;
+  var gsap = window.gsap, ST = window.ScrollTrigger;
+  gsap.registerPlugin(ST);
+
+  /* ---------- smooth scroll ---------- */
+  if (typeof window.Lenis !== "undefined") {
+    try {
+      var lenis = new window.Lenis({ lerp: 0.09, smoothWheel: true });
+      window.lenis = lenis;
+      lenis.on("scroll", ST.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest('a[href^="#"]'); if (!a || a.hasAttribute("data-close")) return;
+        var el = document.querySelector(a.getAttribute("href")); if (!el) return;
+        e.preventDefault(); lenis.scrollTo(el, { offset: el.id === "top" ? 0 : -60, duration: 1.4 });
+      });
+    } catch (err) { window.lenis = null; }
+  }
+
+  /* ---------- progress + nav hide ---------- */
+  gsap.to("#progress", { scaleX: 1, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: 0.3 } });
+  var topbar = $("#topbar");
+  ST.create({ start: 0, end: "max", onUpdate: function (s) { topbar.classList.toggle("hide", s.direction === 1 && s.scroll() > 400 && !document.querySelector("#mega:not([hidden])")); } });
+
+  /* ---------- loader + hero intro ---------- */
+  var loader = document.createElement("div");
+  loader.setAttribute("aria-hidden", "true");
+  loader.style.cssText = "position:fixed;inset:0;z-index:100;background:#050B2D;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px";
+  loader.innerHTML = '<img src="img/ejada-logo-white.png" alt="" style="height:54px;width:auto">' +
+    '<div style="width:min(260px,60vw);height:2px;background:rgba(245,243,240,.12);overflow:hidden"><i style="display:block;height:100%;width:100%;background:linear-gradient(90deg,#009EE0,#1FED93);transform-origin:0 50%;transform:scaleX(0)"></i></div>' +
+    '<span style="font:500 .7rem \'JetBrains Mono\',monospace;letter-spacing:.2em;color:rgba(245,243,240,.6)">000</span>';
+  document.body.appendChild(loader);
+  var lb = loader.querySelector("i"), ln = loader.querySelector("span"), cnt = { v: 0 };
+  gsap.set("[data-line]", { yPercent: 110 });
+  gsap.set("[data-intro]", { y: 30, opacity: 0 });
+  gsap.set("#heroMedia", { scale: 1.15 });
+  var intro = gsap.timeline({ delay: 0.1 });
+  intro.to(cnt, { v: 100, duration: 1.3, ease: "power2.inOut", onUpdate: function () { ln.textContent = String(Math.round(cnt.v)).padStart(3, "0"); lb.style.transform = "scaleX(" + cnt.v / 100 + ")"; } })
+    .to(loader, { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, "+=0.1")
+    .to("#heroMedia", { scale: 1, duration: 1.8, ease: "power3.out" }, "<")
+    .to("[data-line]", { yPercent: 0, duration: 1.1, ease: "power4.out", stagger: 0.09 }, "-=1.3")
+    .to("[data-intro]", { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, onStart: function () { $$("#top [data-count]").forEach(function (el) { countUp(el, 1600); }); } }, "-=0.8")
+    .add(function () { loader.remove(); });
+
+  /* hero shrinks into a framed card as you leave it */
+  gsap.timeline({ scrollTrigger: { trigger: "#top", start: "top top", end: "bottom top", scrub: true } })
+    .to("#heroMedia", { scale: 0.86, borderRadius: 36, ease: "none" }, 0)
+    .to("#heroIn", { yPercent: -18, opacity: 0.2, ease: "none" }, 0);
+
+  var mm = gsap.matchMedia();
+
+  /* ---------- pinned zoom reveal ---------- */
+  var zt = $("#zoomTitle");
+  zt.innerHTML = zt.textContent.split(" ").map(function (w) { return '<span class="w">' + w + "</span>"; }).join(" ");
+  gsap.set("#zoomBody", { y: 60, opacity: 0 });
+  gsap.timeline({ scrollTrigger: { trigger: "#context", start: "top top", end: "+=180%", pin: true, scrub: 0.8 } })
+    .to("#zoomImg", { clipPath: "inset(0% 0% 0% 0% round 0px)", ease: "power2.inOut", duration: 1 }, 0)
+    .to("#zoomImg img", { scale: 1, ease: "power2.inOut", duration: 1 }, 0)
+    .to("#zoomTitle .w", { opacity: 1, stagger: 0.08, duration: 0.3 }, 0.1)
+    .to("#zoomBody", { y: 0, opacity: 1, duration: 0.4 }, 0.85)
+    .to({}, { duration: 0.3 });
+
+  /* ---------- horizontal rail (desktop) ---------- */
+  mm.add("(min-width: 901px)", function () {
+    var track = $("#railTrack");
+    function dist() { return Math.max(0, track.scrollWidth - window.innerWidth); }
+    var tween = gsap.to(track, { x: function () { return -dist(); }, ease: "none",
+      scrollTrigger: { trigger: "#segments", start: "top top", end: function () { return "+=" + dist(); }, pin: true, scrub: 0.9, invalidateOnRefresh: true,
+        onUpdate: function (s) { var i = Math.min(3, Math.floor(s.progress * 4)); $("#railNum").textContent = "0" + (i + 1) + " / 04"; $("#railBar").style.setProperty("--rp", s.progress.toFixed(3)); } } });
+    $$(".seg-card img").forEach(function (img) {
+      gsap.fromTo(img, { xPercent: -8 }, { xPercent: 8, ease: "none", scrollTrigger: { trigger: img.parentNode, containerAnimation: tween, start: "left right", end: "right left", scrub: true } });
+    });
+  });
+
+  /* ---------- marquee reacts to scroll speed ---------- */
+  var mq = gsap.to("#marquee", { xPercent: -50, ease: "none", duration: 28, repeat: -1 });
+  ST.create({ trigger: ".marquee", start: "top bottom", end: "bottom top", onUpdate: function (s) {
+    var v = s.getVelocity(); gsap.to(mq, { timeScale: (v < 0 ? -1 : 1) * Math.min(5, 1 + Math.abs(v) / 400), duration: 0.3, overwrite: true });
+    gsap.to("#marquee", { skewX: gsap.utils.clamp(-8, 8, v / -300), duration: 0.4, overwrite: "auto" });
+  } });
+
+  /* ---------- generic reveals ---------- */
+  gsap.set("[data-reveal]", { y: 40, opacity: 0 });
+  ST.batch("[data-reveal]", { start: "top 88%", onEnter: function (els) { gsap.to(els, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08 }); } });
+  gsap.set(".cap-row, .ins, .more-cases .case, .papers li, .read", { y: 50, opacity: 0 });
+  ST.batch(".cap-row, .ins, .more-cases .case, .papers li, .read", { start: "top 92%", onEnter: function (els) { gsap.to(els, { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.08, clearProps: "transform" }); } });
+
+  /* ---------- pinned case story ---------- */
+  var tl = $$("#timeline > div");
+  tl.forEach(function (d) { d.style.setProperty("--p", 0); });
+  var caseCounted = false;
+  function caseEnter() { if (caseCounted) return; caseCounted = true; $$("#cases [data-count]").forEach(function (el) { countUp(el, 1800); }); }
+  mm.add("(min-width: 901px)", function () {
+    gsap.timeline({ scrollTrigger: { trigger: "#cases", start: "top top", end: "+=120%", pin: true, scrub: 0.8, onEnter: caseEnter } })
+      .to("#caseImg", { scale: 1, ease: "none", duration: 1 }, 0)
+      .to(tl[0], { "--p": 1, duration: 0.25 }, 0.1)
+      .to(tl[1], { "--p": 1, duration: 0.25 }, 0.35)
+      .to(tl[2], { "--p": 1, duration: 0.4 }, 0.6);
+  });
+  mm.add("(max-width: 900px)", function () {
+    ST.create({ trigger: "#cases", start: "top 70%", onEnter: function () { caseEnter(); tl.forEach(function (d, i) { gsap.to(d, { "--p": 1, duration: 0.8, delay: i * 0.3 }); }); } });
+  });
+
+  /* ---------- CTA parallax + headline ---------- */
+  gsap.fromTo("#ctaBg", { yPercent: -8 }, { yPercent: 8, ease: "none", scrollTrigger: { trigger: "#next", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.from("#next h2 span", { yPercent: 60, opacity: 0, stagger: 0.12, duration: 1.1, ease: "power4.out", scrollTrigger: { trigger: "#next", start: "top 65%" } });
+
+  /* images settle as they enter */
+  $$(".ins img, .ws-aside > img, .sheet-top img").forEach(function (img) {
+    gsap.fromTo(img, { scale: 1.18 }, { scale: 1, ease: "none", scrollTrigger: { trigger: img.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
+  });
+
+  window.addEventListener("load", function () { ST.refresh(); });
+})();
+</script>
+
+</body>
+</html>
